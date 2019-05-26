@@ -62,7 +62,8 @@ a {
     transition: all 0.3s; }
     .bar__content a {
       display: block;
-      font-size: 2.2rem;
+      font-size: 2rem;
+      letter-spacing: 0;
       font-weight: 600; }
   .bar__burger {
     font-size: 30px;
@@ -117,6 +118,23 @@ a {
         margin: 1rem; }
     .bar-open .bar__content {
       opacity: 1;
-      left: 40%; }
+      left: 9rem; }
     .bar-open .bar__logo-big {
       left: 6.5rem; }
+    .bar-open .bar__logo-comp {
+      transform: translateX(7rem);
+      transition: transform 0.5s; }
+
+.gallery__image {
+  width: 45rem !important;
+  height: auto !important;
+  margin: 7rem 7rem 0 7rem; }
+
+.gallery .container {
+  width: 104rem;
+  margin: 0 auto;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 0px;
+  -moz-column-count: 2;
+  -moz-column-gap: 0px;
+  column-count: 2; }

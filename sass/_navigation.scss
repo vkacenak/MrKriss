@@ -9,7 +9,7 @@
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09), 0 3px 6px rgba(0, 0, 0, 0.15);
     z-index: 100;
     transition: width 0.3s;
-
+   
 
     &__logo-small {
         position: absolute;
@@ -47,7 +47,8 @@
 
         & a {
             display: block;
-            font-size: 2.2rem;
+            font-size: 2rem;
+            letter-spacing: 0;
             font-weight: 600;
         }
 
@@ -135,10 +136,14 @@
 
         & .bar__content {
             opacity: 1;
-            left: 40%;
+            left: 9rem;
         }
         & .bar__logo-big{
             left:6.5rem;
+        }
+        & .bar__logo-comp{
+            transform: translateX(7rem);
+            transition: transform 0.5s;
         }
 
     }
