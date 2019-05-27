@@ -1,0 +1,47 @@
+h1,h2,h3,h4{
+    font-family: $font-secondary;
+}
+h1{
+    font-size:6rem;
+    color: $color-black;
+    font-weight:700;
+    line-height: 1.1;
+}
+h2{
+    font-size:3rem;
+    font-weight:600;
+    color:$color-black;
+  
+}
+.heading-line{
+    width:6rem;
+    margin-top:0.2rem;
+    background-color: $color-primary;
+    height:0.5rem;
+}
+.button-primary{
+    background-color: $color-primary;
+    font-weight: 500;
+    color:white;
+    padding: 1.4rem 4.5rem;
+    border: none;
+    font-size:1.6rem;
+    border-radius: 0.4rem;
+    margin-right: 4rem;
+    border: 2px solid $color-primary;
+}
+.button-secondary{
+    background-color: white;
+    font-weight: 500;
+    color: $color-primary;
+    padding: 1.4rem 4.5rem;
+    border: 2px solid $color-primary;
+    font-size:1.6rem;
+    border-radius: 0.4rem;
+}
+@media only screen and (max-width: $bp-small) {
+    .button-secondary, .button-primary{
+padding: 1.5rem 3rem;
+margin-right: 1rem;
+    }
+     }
