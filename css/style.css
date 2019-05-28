@@ -86,16 +86,17 @@ h2 {
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09), 0 3px 6px rgba(0, 0, 0, 0.15);
   z-index: 100;
-  transition: width 0.3s; }
+  transition: all 0.3s; }
   @media only screen and (max-width: 37.5em) {
     .bar {
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0);
       box-shadow: none;
       width: 100%;
-      height: 7rem; } }
+      height: 7rem;
+      padding-bottom: 2rem; } }
   .bar__logo-small {
     position: absolute;
-    width: 4.4rem;
+    width: 3.5rem;
     display: block;
     margin: 4rem 2.1rem;
     z-index: 3; }
@@ -103,7 +104,7 @@ h2 {
       .bar__logo-small {
         margin: 2rem auto;
         width: 4rem;
-        top: 1rem; } }
+        top: 0rem; } }
   @media only screen and (max-width: 37.5em) {
     .bar__logo-comp {
       position: absolute;
@@ -157,7 +158,7 @@ h2 {
     z-index: 5; }
     @media only screen and (max-width: 37.5em) {
       .bar__burger {
-        top: 3.5rem;
+        top: 3rem;
         left: 3.5rem;
         width: 3rem;
         height: 2rem; } }
@@ -195,7 +196,7 @@ h2 {
     bottom: 5%; }
     .bar__social img {
       display: block;
-      height: 2.5rem;
+      height: 2rem;
       transition: all 0.5s;
       margin: 3rem 0; }
     .bar__social-fb {
@@ -203,6 +204,13 @@ h2 {
     @media only screen and (max-width: 37.5em) {
       .bar__social {
         left: -3rem; } }
+  .bar.scrolled {
+    background-color: white; }
+    .bar.scrolled .bar__logo-small {
+      opacity: 0; }
+    .bar.scrolled .bar__logo-big {
+      top: 2rem;
+      opacity: 1; }
   @media only screen and (max-width: 37.5em) {
     .bar-open {
       height: 100%; }
@@ -233,7 +241,8 @@ h2 {
         opacity: 1;
         z-index: 3;
         top: 2.8rem; }
-      .bar-open .bar__logo-mask, .bar-open .bar__logo-small {
+      .bar-open .bar__logo-mask,
+      .bar-open .bar__logo-small {
         display: none; } }
   @media only screen and (min-width: 37.5em) {
     .bar-open {
@@ -244,7 +253,7 @@ h2 {
         .bar-open .bar__social img {
           display: inline-block;
           margin: 1rem;
-          height: 3.5rem; }
+          height: 2.5rem; }
       .bar-open .bar__content {
         opacity: 1;
         left: 9rem; }
@@ -326,6 +335,9 @@ h2 {
   background-position: 40%;
   color: white;
   padding: 5rem 13rem; }
+  @media only screen and (max-width: 50em) {
+    .press-featured {
+      padding: 3rem 5rem; } }
   .press-featured h2 {
     color: white;
     font-size: 3rem;
@@ -337,6 +349,10 @@ h2 {
     font-weight: 400;
     max-width: 70%;
     margin-top: 10rem; }
+    @media only screen and (max-width: 50em) {
+      .press-featured h3 {
+        margin-top: 3rem;
+        font-size: 2.5rem; } }
   .press-featured h4 {
     font-size: 1.6rem;
     margin-top: 1rem;
@@ -357,6 +373,9 @@ h2 {
   @media only screen and (max-width: 65em) {
     .press__list {
       margin: 3rem 5rem; } }
+  @media only screen and (max-width: 50em) {
+    .press__list {
+      grid-template-columns: 1fr; } }
   .press__list-item {
     display: grid;
     grid-template-columns: 2rem 1fr;
@@ -364,9 +383,12 @@ h2 {
     width: 100%; }
     @media only screen and (max-width: 65em) {
       .press__list-item {
-        padding: 2rem 6rem; } }
+        padding: 1rem 2rem; } }
     .press__list-item:nth-of-type(2n) {
       border-left: 1px solid #ffbd55; }
+      @media only screen and (max-width: 50em) {
+        .press__list-item:nth-of-type(2n) {
+          border: none; } }
     .press__list-item .bullet {
       grid-row: 1 span 2;
       background-color: #ffbd55;
@@ -383,21 +405,33 @@ h2 {
 
 .cv {
   margin: 13rem; }
+  @media only screen and (max-width: 50em) {
+    .cv {
+      margin: 5rem; } }
   .cv-images {
     margin-top: 6rem;
     text-align: center;
     display: grid;
     grid-template-columns: 1fr 1fr; }
+    @media only screen and (max-width: 50em) {
+      .cv-images {
+        grid-template-columns: 1fr; } }
   .cv p {
     margin-bottom: 4rem;
     font-size: 1.6rem;
     font-weight: 500; }
   .cv img {
     height: 30rem; }
+    @media only screen and (max-width: 50em) {
+      .cv img {
+        height: 25rem; } }
 
 .instagram {
   margin: 13rem;
   color: #707070; }
+  @media only screen and (max-width: 50em) {
+    .instagram {
+      margin: 5rem; } }
   .instagram__acc {
     display: grid;
     grid-template-columns: 10rem 1fr;
@@ -418,6 +452,9 @@ h2 {
       grid-row: 2; }
   .instagram button {
     margin-left: 2rem; }
+  .instagram iframe {
+    display: block;
+    margin: 5rem auto; }
 
 .gallery__image {
   width: 45rem !important;
