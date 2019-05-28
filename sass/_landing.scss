@@ -53,6 +53,15 @@
     margin-bottom: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: 1fr;
+        & img{
+            grid-row: 2;
+        }
+        &-text{
+            grid-row: 1;
+        }
+    }
 
     & img {
         width: 70%;
@@ -132,12 +141,18 @@
         grid-template-columns: 1fr 1fr;
         justify-items: center;
         margin: 5rem 10rem;
+        @media only screen and (max-width: $bp-large) {
+            margin: 3rem 5rem;
+        }
 
         &-item {
             display: grid;
             grid-template-columns: 2rem 1fr;
             padding: 2rem 9rem;
             width: 100%;
+            @media only screen and (max-width: $bp-large) {
+               padding: 2rem 6rem;
+            }
 
             &:nth-of-type(2n) {
                 border-left: 1px solid $color-primary;
