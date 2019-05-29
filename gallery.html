@@ -43,7 +43,8 @@
         </div>
     </nav>
 
-    <main class="gallery">
+    <main>
+        <section class="gallery">
         <div class="gallery__navigation">
             <a class="cursor active personal-button">Personal work</a>
             <a class="cursor series-button">Series</a>
@@ -89,41 +90,8 @@
                 </div>
 
             </div>
-
-            <div id="series" class="series">
-                <div class="series__box">
-                    <div class="series__box__image cursor image-lightbox-open">
-                        <div class="series__box__image__frame">
-                            <img src="img/gallery/1.png" alt="Penguin">
-                        </div>
-                    </div>
-
-                    <div class="series__box__text">
-                        <h2 class="series__box__title">Emoji Zoo</h2>
-                        <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
-                        <button class="button-primary series__box__button cursor">View serie</button>
-
-                    </div>
-
-                </div>
-
-                <div class="series__box">
-                        <div class="series__box__image cursor image-lightbox-open">
-                            <div class="series__box__image__frame">
-                                <img src="img/gallery/1.png" alt="Penguin">
-                            </div>
-                        </div>
-    
-                        <div class="series__box__text">
-                            <h2 class="series__box__title">Emoji Zoo</h2>
-                            <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
-                            <button class="button-primary series__box__button cursor">View serie</button>
-    
-                        </div>
-    
-                    </div>
+            <div class="series" id="series">
             </div>
-
 
             <div id="commercial" class="commercial">
                     <div class="commercial__box">
@@ -163,7 +131,25 @@
 
             </div>
         </div>
+    </section>
     </main>
+    
+    <template class="seriesTemplate"><div class="series__box">
+            <div class="series__box__image cursor image-lightbox-open">
+                <div class="series__box__image__frame">
+                    <img class="series__box__src" src="img.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="series__box__text">
+                <h2 class="series__box__title"></h2>
+                <p class="series__box__description"></p>
+                <button class="button-primary series__box__button cursor">View serie</button>
+
+            </div>
+        </div>
+        
+    </template>
 
     <div id="myModal" class="lightbox">
         <div onclick="toggleFullscreen()" class="full-screen-box cursor">
@@ -207,132 +193,7 @@
     <script src="js/main.js"></script>
 
     <script>
-        document.querySelector(".personal-button").addEventListener("click", showPersonal);
-        document.querySelector(".series-button").addEventListener("click", showSeries);
-        document.querySelector(".commercial-button").addEventListener("click", showCommercial);
-
-
-        function showPersonal() {
-            document.querySelector(".personal").style.visibility = "visible";
-            document.querySelector(".personal").style.opacity = "1";
-            document.querySelector(".personal-button").classList.add('active');
-            hideSeries();
-            hideCommercial();
-        }
-
-        function showSeries() {
-            document.querySelector(".series").style.visibility = "visible";
-            document.querySelector(".series").style.opacity = "1";
-            document.querySelector(".series-button").classList.add('active');
-            hidePersonal();
-            hideCommercial();
-        }
-
-        function showCommercial() {
-            document.querySelector(".commercial").style.visibility = "visible";
-            document.querySelector(".commercial").style.opacity = "1";
-            document.querySelector(".commercial-button").classList.add('active');
-            hidePersonal();
-            hideSeries();
-        }
-
-        function hideSeries() {
-            document.querySelector(".series").style.visibility = "hidden";
-            document.querySelector(".series").style.opacity = "0";
-            document.querySelector(".series-button").classList.remove('active');
-        }
-
-        function hidePersonal() {
-            document.querySelector(".personal").style.visibility = "hidden";
-            document.querySelector(".personal").style.opacity = "0";
-            document.querySelector(".personal-button").classList.remove('active');
-        }
-
-        function hideCommercial() {
-            document.querySelector(".commercial").style.visibility = "hidden";
-            document.querySelector(".commercial").style.opacity = "0";
-            document.querySelector(".commercial-button").classList.remove('active');
-        }
-
-        var slideIndex = 1;
-        var slides = document.getElementsByClassName("image-lightbox-open");
-        var n = 1;
-        var x = 0;
-
-
-        function toggleFullscreen(elem) {
-            elem = elem || document.documentElement;
-            if (!document.fullscreenElement) {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen();
-                    document.getElementById("fullscreen").src = "img/exitFullscreen.png";
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                    document.getElementById("fullscreen").src = "img/fullscreen.png";
-                }
-            }
-        }
-
-        function closeModal() {
-            document.getElementById("myModal").style.visibility = "hidden";
-            document.getElementById("myModal").style.opacity = "0";
-        }
-
-        function minusSlides() {
-            x = slideIndex;
-            if (x == 1) {
-                slideIndex = slides.length;
-            } else {
-                slideIndex--;
-            }
-            showSlides(slideIndex);
-        }
-
-        function plusSlides() {
-            x = slideIndex;
-            if (x == slides.length) {
-                slideIndex = 1;
-            } else {
-                slideIndex++;
-            }
-            showSlides(slideIndex);
-
-
-        }
-
-        document.querySelectorAll(".image-lightbox-open").forEach(function (e) {
-            e.addEventListener("click", function () {
-                document.getElementById("myModal").style.visibility = "visible";
-                document.getElementById("myModal").style.opacity = "1";
-                slideIndex = e.id;
-                showSlides(slideIndex);
-
-                console.log(document.getElementById(slideIndex).firstElementChild.outerHTML);
-            })
-        })
-
-        function showSlides(n) {
-            var image = document.getElementById(slideIndex).firstElementChild.outerHTML;
-            var title = document.getElementById(slideIndex).firstElementChild.nextElementSibling.firstElementChild
-                .innerHTML;
-            var subtitle = document.getElementById(slideIndex).firstElementChild.nextElementSibling
-                .firstElementChild
-                .nextElementSibling.innerHTML;
-            var description = document.getElementById(slideIndex).firstElementChild.nextElementSibling
-                .firstElementChild
-                .nextElementSibling.nextElementSibling.innerHTML;
-            console.log(n);
-
-            document.querySelector(".lightbox-image-box").firstElementChild.innerHTML = image;
-            document.querySelector(".lightbox_text_title").innerHTML = title;
-            document.querySelector(".lightbox_text_subtitle").innerHTML = subtitle;
-            document.querySelector(".lightbox_text_description").innerHTML = description;
-            document.querySelector(".lightbox_text_number").innerHTML = (n + " / " + slides.length);
-            console.log(title);
-
-        }
+      
     </script>
 </body>
 
