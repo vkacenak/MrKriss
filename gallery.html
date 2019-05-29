@@ -1,60 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="css/style.css">
-       
-        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-        
-        <title></title>
-    </head>
-    <body>
-        <nav class="bar">            
-            <div class="bar__logo-comp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+    <title></title>
+</head>
+
+<body>
+    <nav class="bar">
+        <div class="bar__logo-comp">
             <div class="bar__logo-mask"></div>
             <a href="index.html"><img src="img/logo-2.png" alt="" class="bar__logo-big"></a>
             <a href="index.html"><img src="img/logo-1.png" alt="" class="bar__logo-small"></a>
         </div>
-                <div class="bar__burger">
-                        <span class="bar__burger-1"></span>
-                        <span class="bar__burger-2"></span>
-                        <span class="bar__burger-3"></span>
-                      </div>
-            <div class="bar__social">
-                <img src="img/ig-icon.png" alt="">
-                <img src="img/dribble-icon.png" alt="">
-                <img src="img/fb-icon.png" class="bar__social-fb" alt="">                
+        <div class="bar__burger">
+            <span class="bar__burger-1"></span>
+            <span class="bar__burger-2"></span>
+            <span class="bar__burger-3"></span>
+        </div>
+        <div class="bar__social">
+            <img src="img/ig-icon.png" alt="">
+            <img src="img/dribble-icon.png" alt="">
+            <img src="img/fb-icon.png" class="bar__social-fb" alt="">
+        </div>
+        <div class="bar__content">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Gallery</a>
+            <a href="#">Shop</a>
+            <a href="#">Dance</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <main class="gallery">
+        <div class="gallery__navigation">
+            <a class="cursor active personal-button">Personal work</a>
+            <a class="cursor series-button">Series</a>
+            <a class="cursor commercial-button">Commercial work</a>
+        </div>
+        <div class="gallery__container">
+            <div id="personal" class="personal">
+                <div class="personal__box cursor image-lightbox-open">
+                    <div class="personal__box__image">
+                        <img src="img/gallery/1.png" alt="Penguin">
+                    </div>
+                    <h2 class="personal__box__title">Penguin</h2>
+                </div>
+                <div class="personal__box cursor image-lightbox-open">
+                    <div class="personal__box__image">
+                        <img src="img/gallery/3.png" alt="Penguin">
+                    </div>
+                    <h2 class="personal__box__title">Penguin</h2>
+                </div>
+                <div class="personal__box cursor image-lightbox-open">
+                    <div class="personal__box__image">
+                        <img src="img/gallery/4.png" alt="Penguin">
+                    </div>
+                    <h2 class="personal__box__title">Penguin</h2>
+                </div>
+                <div class="personal__box cursor image-lightbox-open">
+                    <div class="personal__box__image">
+                        <img src="img/gallery/5.png" alt="Penguin">
+                    </div>
+                    <h2 class="personal__box__title">Penguin</h2>
+                </div>
+                <div class="personal__box cursor image-lightbox-open">
+                    <div class="personal__box__image">
+                        <img src="img/gallery/6.png" alt="Penguin">
+                    </div>
+                    <h2 class="personal__box__title">Penguin</h2>
+                </div>
+                <div class="personal__box cursor image-lightbox-open">
+                    <div class="personal__box__image">
+                        <img src="img/gallery/7.png" alt="Penguin">
+                    </div>
+                    <h2 class="personal__box__title">Penguin</h2>
+                </div>
+
             </div>
-            <div class="bar__content">
-                    <a href="#">Home</a>
-                    <a href="#">News</a>
-                    <a href="#">Gallery</a>
-                    <a href="#">Shop</a>
-                    <a href="#">Dance</a>
-                    <a href="#">Contact</a>
+
+            <div id="series" class="series">
+                <div class="series__box">
+                    <div class="series__box__image cursor image-lightbox-open">
+                        <div class="series__box__image__frame">
+                            <img src="img/gallery/1.png" alt="Penguin">
+                        </div>
+                    </div>
+
+                    <div class="series__box__text">
+                        <h2 class="series__box__title">Emoji Zoo</h2>
+                        <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
+                        <button class="button-primary series__box__button cursor">View serie</button>
+
+                    </div>
+
+                </div>
+
+                <div class="series__box">
+                        <div class="series__box__image cursor image-lightbox-open">
+                            <div class="series__box__image__frame">
+                                <img src="img/gallery/1.png" alt="Penguin">
+                            </div>
+                        </div>
+    
+                        <div class="series__box__text">
+                            <h2 class="series__box__title">Emoji Zoo</h2>
+                            <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
+                            <button class="button-primary series__box__button cursor">View serie</button>
+    
+                        </div>
+    
+                    </div>
             </div>
-        </nav>
+
+
+            <div id="commercial" class="commercial">
+                    <div class="commercial__box">
+                            <div class="series__box__image cursor image-lightbox-open">
+                                <div class="series__box__image__frame">
+                                    <img src="img/gallery/1.png" alt="Penguin">
+                                </div>
+                            </div>
         
-       <main class="gallery">
-               <div class="container">
-                   
-                      <img class="gallery__image" src="img/gallery/1.png" alt="">
-                      <img class="gallery__image" src=img/gallery/2.png alt="">                 
-                      <img class="gallery__image" src=img/gallery/3.png alt="">
-                      <img class="gallery__image" src=img/gallery/4.png alt="">                 
-                      <img class="gallery__image" src=img/gallery/5.png alt="">                  
-                      <img class="gallery__image" src=img/gallery/6.png alt="">
-                    
-                  </div>
-       </main>
-        <footer class="footer">
-         
-        </footer>
-        <script src="js/main.js"></script>
-    </body>
+                            <div class="series__box__text">
+                                <h2 class="series__box__title">Plastic Ocean</h2>
+                                <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
+                                <button class="button-primary series__box__button cursor">View site</button>
+        
+                            </div>
+        
+                        </div>
+        
+                        <div class="commercial__box">
+                                <div class="series__box__image cursor image-lightbox-open">
+                                    <div class="series__box__image__frame">
+                                        <img src="img/gallery/1.png" alt="Penguin">
+                                    </div>
+                                </div>
+            
+                                <div class="series__box__text">
+                                    <h2 class="series__box__title">Emoji Zoo</h2>
+                                    <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
+                                    <button class="button-primary series__box__button cursor">View site</button>
+            
+                                </div>
+            
+                            </div>
+
+                            
+
+
+            </div>
+        </div>
+    </main>
+
+    <div id="myModal" class="lightbox">
+        <div onclick="toggleFullscreen()" class="full-screen-box cursor">
+            <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
+        </div>
+
+        <div onclick="closeModal()" class="close-box cursor">
+            <span class="close"></span>
+        </div>
+
+        <div class="prev-box">
+            <div onclick="minusSlides()" class="arrow">
+                <div class="arrow-top arrow-left-top"></div>
+                <div class="arrow-bottom arrow-left-bottom"></div>
+            </div>
+        </div>
+        <div class="next-box">
+            <div onclick="plusSlides()" class="arrow">
+                <div class="arrow-top arrow-right-top"></div>
+                <div class="arrow-bottom arrow-right-bottom"></div>
+            </div>
+        </div>
+
+        <div class="lightbox-image-box">
+            <div class="lightbox_image">
+            </div>
+        </div>
+
+        <div class="lightbox_text">
+            <h1 class="lightbox_text_title"></h1>
+            <h2 class="lightbox_text_subtitle"></h2>
+            <p class="lightbox_text_description"></p>
+            <p class="lightbox_text_number"></p>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+
+    </footer>
+    <script src="js/main.js"></script>
+
+    <script>
+        document.querySelector(".personal-button").addEventListener("click", showPersonal);
+        document.querySelector(".series-button").addEventListener("click", showSeries);
+        document.querySelector(".commercial-button").addEventListener("click", showCommercial);
+
+
+        function showPersonal() {
+            document.querySelector(".personal").style.visibility = "visible";
+            document.querySelector(".personal").style.opacity = "1";
+            document.querySelector(".personal-button").classList.add('active');
+            hideSeries();
+            hideCommercial();
+        }
+
+        function showSeries() {
+            document.querySelector(".series").style.visibility = "visible";
+            document.querySelector(".series").style.opacity = "1";
+            document.querySelector(".series-button").classList.add('active');
+            hidePersonal();
+            hideCommercial();
+        }
+
+        function showCommercial() {
+            document.querySelector(".commercial").style.visibility = "visible";
+            document.querySelector(".commercial").style.opacity = "1";
+            document.querySelector(".commercial-button").classList.add('active');
+            hidePersonal();
+            hideSeries();
+        }
+
+        function hideSeries() {
+            document.querySelector(".series").style.visibility = "hidden";
+            document.querySelector(".series").style.opacity = "0";
+            document.querySelector(".series-button").classList.remove('active');
+        }
+
+        function hidePersonal() {
+            document.querySelector(".personal").style.visibility = "hidden";
+            document.querySelector(".personal").style.opacity = "0";
+            document.querySelector(".personal-button").classList.remove('active');
+        }
+
+        function hideCommercial() {
+            document.querySelector(".commercial").style.visibility = "hidden";
+            document.querySelector(".commercial").style.opacity = "0";
+            document.querySelector(".commercial-button").classList.remove('active');
+        }
+
+        var slideIndex = 1;
+        var slides = document.getElementsByClassName("image-lightbox-open");
+        var n = 1;
+        var x = 0;
+
+
+        function toggleFullscreen(elem) {
+            elem = elem || document.documentElement;
+            if (!document.fullscreenElement) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                    document.getElementById("fullscreen").src = "img/exitFullscreen.png";
+                }
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                    document.getElementById("fullscreen").src = "img/fullscreen.png";
+                }
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.visibility = "hidden";
+            document.getElementById("myModal").style.opacity = "0";
+        }
+
+        function minusSlides() {
+            x = slideIndex;
+            if (x == 1) {
+                slideIndex = slides.length;
+            } else {
+                slideIndex--;
+            }
+            showSlides(slideIndex);
+        }
+
+        function plusSlides() {
+            x = slideIndex;
+            if (x == slides.length) {
+                slideIndex = 1;
+            } else {
+                slideIndex++;
+            }
+            showSlides(slideIndex);
+
+
+        }
+
+        document.querySelectorAll(".image-lightbox-open").forEach(function (e) {
+            e.addEventListener("click", function () {
+                document.getElementById("myModal").style.visibility = "visible";
+                document.getElementById("myModal").style.opacity = "1";
+                slideIndex = e.id;
+                showSlides(slideIndex);
+
+                console.log(document.getElementById(slideIndex).firstElementChild.outerHTML);
+            })
+        })
+
+        function showSlides(n) {
+            var image = document.getElementById(slideIndex).firstElementChild.outerHTML;
+            var title = document.getElementById(slideIndex).firstElementChild.nextElementSibling.firstElementChild
+                .innerHTML;
+            var subtitle = document.getElementById(slideIndex).firstElementChild.nextElementSibling
+                .firstElementChild
+                .nextElementSibling.innerHTML;
+            var description = document.getElementById(slideIndex).firstElementChild.nextElementSibling
+                .firstElementChild
+                .nextElementSibling.nextElementSibling.innerHTML;
+            console.log(n);
+
+            document.querySelector(".lightbox-image-box").firstElementChild.innerHTML = image;
+            document.querySelector(".lightbox_text_title").innerHTML = title;
+            document.querySelector(".lightbox_text_subtitle").innerHTML = subtitle;
+            document.querySelector(".lightbox_text_description").innerHTML = description;
+            document.querySelector(".lightbox_text_number").innerHTML = (n + " / " + slides.length);
+            console.log(title);
+
+        }
+    </script>
+</body>
+
 </html>
