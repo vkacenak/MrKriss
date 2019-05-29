@@ -1,0 +1,453 @@
+/* Shortcut for Solty */
+.bg {
+    border: 1px solid green;
+}
+
+/******************* Gallery *****************/
+
+
+/* Personal work */
+.gallery__navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12rem;
+    padding: 0 20% 0 25%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: auto;
+    background-color: white;
+    z-index: 10;
+}
+
+.gallery__navigation a {
+    margin: auto;
+    font-size: 2rem;
+    color: rgb(73, 73, 73);
+    font-weight: 400;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    position: relative;
+    overflow: hidden;
+    line-height: 3;
+}
+
+.gallery__navigation a:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 10%;
+    right: 100%;
+    bottom: 0;
+    background: #FFBD55;
+    height: 3px;
+    transition-property: right;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    border-radius: 100%;
+}
+
+.gallery__navigation a:hover:before {
+    right: 10%;
+}
+
+.gallery__navigation .active:before {
+    right: 10%;
+}
+
+/* Gallery  container */
+.gallery__container {
+    position: relative;
+    width: 75%;
+    margin: 10% auto;
+}
+
+.personal,
+.series,
+.commercial {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    transition: all 0.4s ease-in-out;
+}
+
+.series,
+.commercial {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.series__box,
+.commercial__box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20rem;
+}
+
+
+/* Personal work */
+.personal {
+    column-count: 2;
+}
+
+.personal__box {
+    padding: 0 3.5rem 8rem 3.5rem;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.personal__box:hover .personal__box__title:before {
+    width: 100%;
+    opacity: 0;
+}
+
+.personal__box:hover .personal__box__image img {
+    transform: scale(1.1);
+}
+
+.personal__box__image {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.personal__box__image img {
+    width: 100%;
+    height: auto;
+    transition: 0.4s ease;
+    display: block;
+}
+
+.personal__box__title {
+    position: relative;
+    transition: 0.5s ease-in;
+    margin: 2rem 0;
+    color: rgb(94, 94, 94);
+    font-size: 2rem;
+}
+
+.personal__box__title:before {
+    position: absolute;
+    content: "";
+    background: rgb(255, 255, 255);
+    width: 100%;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 2;
+    transition: all 0.4s ease 0s;
+    opacity: 1;
+}
+
+/* Series */
+
+.series__box__image {
+    padding: 0 3.5rem 0 3.5rem;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.series__box__image:hover .series__box__image__frame img {
+    transform: scale(1.1);
+    filter: opacity(0.5);
+}
+
+.series__box__image__frame {
+    padding: 0;
+    width: 45rem;
+    height: 100%;
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.series__box__image__frame img {
+    width: 100%;
+    height: auto;
+    transition: 0.4s ease;
+    display: block;
+}
+
+.series__box__text {
+    position: relative;
+}
+
+.series__box__title {
+    margin: 0 5rem; 
+    color: rgb(94, 94, 94);
+    font-size: 3rem;
+}
+
+.series__box__description {
+    margin: 0 5rem; 
+    color: rgb(94, 94, 94);
+    font-size: 1.8rem;
+}
+
+.series__box__button {
+    position: absolute;
+    bottom: 5rem;
+    left: 5rem;
+    transition: all 0.2s ease;
+}
+
+.button-primary:hover{
+background-color: white;
+color: #FFBD55;
+}
+
+
+
+
+
+
+/******************* LIGHTBOX *****************/
+
+
+/* The Modal (background) */
+.lightbox {
+    display: grid;
+    visibility: hidden;
+    opacity: 0;
+    grid-template-columns: 8% 50% 8% 34%;
+    grid-template-areas: "prev img next text";
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(255, 255, 255);
+    transition: opacity 0.2s ease 0s;
+
+}
+
+/* Modal Content */
+.lightbox-image-box {
+    grid-area: img;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 85%;
+    transition: all 0.2s ease-in-out;
+}
+
+.lightbox_image {
+    width: 100%;
+    height: auto;
+}
+
+.lightbox_image img {
+    width: 100%;
+    height: auto;
+}
+
+/* The Close Button */
+.close-box {
+    top: 40px;
+    width: 40px;
+    height: 40px;
+    right: 40px;
+    position: absolute;
+    opacity: 0.4;
+    z-index: 2;
+    transition: all 0.2s ease-in-out;
+}
+
+.close {
+    width: 100%;
+}
+
+.close-box:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.close:before,
+.close:after {
+    position: absolute;
+    left: 25px;
+    content: ' ';
+    height: 100%;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+/* Full-screen box */
+.full-screen-box {
+    width: 40px;
+    left: 40px;
+    top: 40px;
+    position: absolute;
+    opacity: 0.4;
+    transition: all 0.2s;
+    z-index: 2;
+}
+
+.full-screen-box:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.full-screen {
+    width: 100%;
+    height: auto;
+}
+
+/* Next & previous buttons */
+.prev-box,
+.next-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.prev-box {
+    grid-area: prev;
+}
+
+.next-box {
+    grid-area: next;
+}
+
+.arrow {
+    cursor: pointer;
+    height: 30px;
+    left: 50px;
+    position: absolute;
+    top: 45%;
+    transition: transform .3s;
+    width: 30px;
+}
+
+.arrow-top,
+.arrow-bottom {
+    background-color: rgb(138, 138, 138);
+    height: 3px;
+    left: -5px;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+.arrow-top:after,
+.arrow-bottom:after {
+    background-color: #FFBD55;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.15s;
+}
+
+.arrow-right-top {
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+
+.arrow-top:after {
+    left: 100%;
+    right: 0;
+}
+
+.arrow-right-bottom {
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+
+.arrow-bottom:after {
+    left: 0;
+    right: 100%;
+    transition-delay: 0.15s;
+}
+
+.arrow:hover {
+    transform: scale(1.3);
+}
+
+.arrow:hover .arrow-top:after {
+    left: 0;
+    transition-delay: 0.15s;
+}
+
+.arrow:hover .arrow-bottom:after {
+    right: 0;
+    transition-delay: 0s;
+}
+
+.arrow-left-top,
+.arrow-left-bottom {
+    left: -90%;
+}
+
+.arrow-left-top {
+    transform: rotate(135deg);
+    transform-origin: bottom right;
+}
+
+.arrow-left-bottom {
+    transform: rotate(-135deg);
+    transform-origin: bottom right;
+}
+
+
+/* Lightbox Text */
+
+.lightbox_text {
+    position: relative;
+    padding: 20% 5% 20% 5%;
+    width: 70%;
+    color: rgb(63, 63, 63);
+}
+
+.lightbox_text_title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.lightbox_text_subtitle {
+    font-size: 25px;
+    font-weight: 400;
+    color: rgb(83, 83, 83);
+}
+
+.lightbox_text_description {
+    padding-top: 10%;
+    font-size: 16px;
+    font-weight: 200;
+    color: rgb(83, 83, 83);
+}
+
+.lightbox_text_number {
+    color: rgb(167, 167, 167);
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+@media only screen and (max-width: $bp-small) {
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+}
