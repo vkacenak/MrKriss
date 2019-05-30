@@ -44,97 +44,32 @@
     </nav>
 
     <main>
-        <section class="gallery">
-        <div class="gallery__navigation">
-            <a class="cursor active personal-button">Personal work</a>
-            <a class="cursor series-button">Series</a>
-            <a class="cursor commercial-button">Commercial work</a>
-        </div>
-        <div class="gallery__container">
-            <div id="personal" class="personal">
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                        <img src="img/gallery/1.png" alt="Penguin">
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
+        <section class="gallery personal-active">
+            <div class="gallery__navigation">
+                <input class="personal-button" type="radio" name="gallery" value="male" checked onclick="checkButtons()"
+                    id="radio-1"><label class="cursor" for="radio-1">Personal work</label>
+                <input class="series-button" type="radio" name="gallery" value="female" onclick="checkButtons()"
+                    id="radio-2"><label class="cursor" for="radio-2">Series</label>
+                <input class="commercial-button" type="radio" name="gallery" value="other" onclick="checkButtons()"
+                    id="radio-3"><label class="cursor" for="radio-3">Commercial work</label>
+            </div>
+            <div class="gallery__container">
+
+                <div id="personal" class="personal">
                 </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                        <img src="img/gallery/3.png" alt="Penguin">
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
+
+                <div id="series" class="series">
                 </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                        <img src="img/gallery/4.png" alt="Penguin">
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
-                </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                        <img src="img/gallery/5.png" alt="Penguin">
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
-                </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                        <img src="img/gallery/6.png" alt="Penguin">
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
-                </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                        <img src="img/gallery/7.png" alt="Penguin">
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
+
+                <div id="commercial" class="commercial">
                 </div>
 
             </div>
-            <div class="series" id="series">
-            </div>
-
-            <div id="commercial" class="commercial">
-                    <div class="commercial__box">
-                            <div class="series__box__image cursor image-lightbox-open">
-                                <div class="series__box__image__frame">
-                                    <img src="img/gallery/1.png" alt="Penguin">
-                                </div>
-                            </div>
-        
-                            <div class="series__box__text">
-                                <h2 class="series__box__title">Plastic Ocean</h2>
-                                <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
-                                <button class="button-primary series__box__button cursor">View site</button>
-        
-                            </div>
-        
-                        </div>
-        
-                        <div class="commercial__box">
-                                <div class="series__box__image cursor image-lightbox-open">
-                                    <div class="series__box__image__frame">
-                                        <img src="img/gallery/1.png" alt="Penguin">
-                                    </div>
-                                </div>
-            
-                                <div class="series__box__text">
-                                    <h2 class="series__box__title">Emoji Zoo</h2>
-                                    <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
-                                    <button class="button-primary series__box__button cursor">View site</button>
-            
-                                </div>
-            
-                            </div>
-
-                            
-
-
-            </div>
-        </div>
-    </section>
+        </section>
     </main>
-    
-    <template class="seriesTemplate"><div class="series__box">
+
+    <template class="seriesTemplate">
+        <div class="series__box">
             <div class="series__box__image cursor image-lightbox-open">
                 <div class="series__box__image__frame">
                     <img class="series__box__src" src="img.jpg" alt="">
@@ -144,11 +79,21 @@
             <div class="series__box__text">
                 <h2 class="series__box__title"></h2>
                 <p class="series__box__description"></p>
-                <button class="button-primary series__box__button cursor">View serie</button>
+                <button class="button-primary series__box__button cursor">View more</button>
 
             </div>
         </div>
-        
+
+    </template>
+
+    <template class="personalTemplate">
+            <div onclick="openLightbox(this)" class="personal__box cursor image-lightbox-open">
+                <div class="personal__box__image">
+                    <img class="personal__box__src" src="img/gallery/1.png" alt="Penguin">
+                </div>
+                <h2 class="personal__box__title">Penguin</h2>
+            </div>
+    
     </template>
 
     <div id="myModal" class="lightbox">
@@ -174,7 +119,7 @@
         </div>
 
         <div class="lightbox-image-box">
-            <div class="lightbox_image">
+            <div class="lightbox_image"><img src="img.png" alt="">
             </div>
         </div>
 
@@ -193,7 +138,7 @@
     <script src="js/main.js"></script>
 
     <script>
-      
+
     </script>
 </body>
 
