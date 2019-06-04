@@ -35,16 +35,18 @@
             <img src="img/fb-icon.png" class="bar__social-fb" alt="">
         </div>
         <div class="bar__content">
-            <a href="#">Home</a>
+
+            <a href="index.html">Home</a>
             <a href="news.html">News</a>
             <a href="gallery.html">Gallery</a>
             <a href="shop.html">Shop</a>
-            <a href="#">Dance</a>
-            <a href="#">Contact</a>
+            <a href="dance.html">Dance</a>
+            <a href="#contact">Contact</a>
+
         </div>
     </nav>
 
-    <main>
+    <main class="newstype">
         <section class="news">
             <div class="news__heading">
                 <h2>News</h2>
@@ -139,6 +141,28 @@
 
 
     </main>
+<template class="newsTemplate">
+        <div class="news__article">
+                <div class="news__article--line"></div>
+                <div class="news__article--heading">
+                    <h3>Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit</h3>
+                    <div class="news__article--heading-information">
+                        <p>May 2019</p>
+                        <p style="margin-left:1rem; margin-right: 1rem; ">|</p>
+                        <p>Location</p>
+                    </div>
+                </div>
+                <img class="news__article--image" src="img/news1.png" alt="news1">
+                <div class="news__article--content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus tincidunt eleifend.
+                        Integer faucibus enim vitae purus venenatis, sit amet volutpat ligula laoreet. Sed at
+                        metus sed tortor maximus dictum quis et ante. Nulla tincidunt purus sed commodo
+                        fringilla. Fusce non justo non ipsum malesuada dapibus.</p>
+                </div>
+            </div>
+</template>
+    
     <footer class="footer">
 
     </footer>
