@@ -62,9 +62,9 @@ function JSONFetch(link, type) {
 
             switch (type[0]) {
                 case "piecestype":
-
                     main.classList.remove("piecestype");
                     createPieces(data);
+
                     break;
 
                 case "seriestype":
@@ -92,6 +92,7 @@ function JSONFetch(link, type) {
 
     request.send();
 }
+
 
 function createNews(data) {
     console.log(data);
@@ -150,11 +151,25 @@ function createPress(data) {
           document.querySelector('.press-featured h4').innerHTML = data[i].source;
           document.querySelector('.press-featured a').href = data[i].link;
        }
+
+function createSeries(data) {
+
+    if (!document.querySelector('.series').classList.contains('series-fetched')) {
+        console.log(data);
+        var template = document.querySelector(".seriesTemplate").content;
+        for (i = 0; i < data.length; i++) {
+            const clone = template.cloneNode(true);
+            clone.querySelector('.series__box__src').src = data[i].cover_image.guid;
+            clone.querySelector('.series__box__title').innerHTML = data[i].title.rendered;
+            document.querySelector('.series').appendChild(clone);
+            document.querySelector('.series').classList.add('series-fetched');
+        }
+
     }
+
+
+
 }
-
-
-
 
 function createPieces(data) {
     if (document.querySelector(".commercial-button").checked) {
@@ -182,6 +197,26 @@ function createPieces(data) {
     }
 
 
+    if (document.querySelector(".personal-button").checked) {
+        if (!document.querySelector('.personal').classList.contains('personal-fetched')) {
+            console.log(data);
+            var template2 = document.querySelector(".personalTemplate").content;
+            for (i = 0; i < data.length; i++) {
+                if (data[i].categories[0] == 2) {
+                    const clone = template2.cloneNode(true);
+                    personalData[p] = data[i];
+                    p++;
+                    clone.querySelector('.personal__box__src').src = data[i].image.guid;
+                    clone.querySelector('.personal__box').id = data[i].id;
+                    clone.querySelector('.personal__box__title').innerHTML = data[i].title.rendered;
+                    clone.querySelector('.personal__box__number').innerHTML = p;
+
+                    document.querySelector('.personal').appendChild(clone);
+                    document.querySelector('.personal').classList.add('personal-fetched');
+
+
+                }
+            }
 
     if (document.querySelector(".personal-button").checked) {
         if (!document.querySelector('.personal').classList.contains('personal-fetched')) {
@@ -207,12 +242,15 @@ function createPieces(data) {
 
 
 
-
         }
     }
     /* console.log(personalData[4]); */
 }
 
+        }
+    }
+    /* console.log(personalData[4]); */
+}
 
     checkButtons();
 
@@ -227,6 +265,7 @@ function showPersonal() {
     hideSeries();
     hideCommercial();
 }
+
 function checkButtons() {
     document.querySelector(".personal").classList.remove('personal-active');
     document.querySelector(".series").classList.remove('series-active');
@@ -246,7 +285,6 @@ function checkButtons() {
     }
     FetchLocationTest();
 }
-
 
 
 var slideIndex = 1;
