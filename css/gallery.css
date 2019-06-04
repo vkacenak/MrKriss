@@ -64,12 +64,12 @@
 .gallery__container {
     position: relative;
     width: 75%;
-    margin: 10% auto;
+    margin: 18% auto;
 }
 
 .personal,
 .series,
-.commercial {
+.commercial{
     position: absolute;
     top: 0;
     left: 0;
@@ -98,27 +98,29 @@
 
 
 /* Personal work */
-.personal {
+.personal,.serie {
     column-count: 2;
 }
 
-.personal__box {
+.personal__box,.serie__box {
     padding: 0 3.5rem 8rem 3.5rem;
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
-.personal__box:hover .personal__box__title:before {
+.personal__box:hover .personal__box__title:before,
+.serie__box:hover .serie__box__title:before  {
     width: 100%;
     opacity: 0;
 }
 
-.personal__box:hover .personal__box__image img {
+.personal__box:hover .personal__box__image img,
+.serie__box:hover .serie__box__image img {
     transform: scale(1.1);
 }
 
-.personal__box__image {
+.personal__box__image,.serie__box__image {
     padding: 0;
     width: 100%;
     height: 100%;
@@ -126,14 +128,14 @@
     overflow: hidden;
 }
 
-.personal__box__image img {
+.personal__box__image img,.serie__box__image img {
     width: 100%;
     height: auto;
     transition: 0.4s ease;
     display: block;
 }
 
-.personal__box__title {
+.personal__box__title,.serie__box__title {
     position: relative;
     transition: 0.5s ease-in;
     margin: 2rem 0;
@@ -141,7 +143,7 @@
     font-size: 2rem;
 }
 
-.personal__box__title:before {
+.personal__box__title:before,.serie__box__title:before {
     position: absolute;
     content: "";
     background: rgb(255, 255, 255);
@@ -152,6 +154,22 @@
     z-index: 2;
     transition: all 0.4s ease 0s;
     opacity: 1;
+}
+
+.personal__box__number,.commercial__box__number,.series__box__number{
+    display: none;
+}
+
+.serie__heading{
+    margin: 2rem 3.5rem;
+    color: rgb(94, 94, 94);
+    font-size: 2rem;
+}
+
+.serie__description{
+    margin: 2rem 3.5rem;
+    color: rgb(94, 94, 94);
+    font-size: 1.8rem;
 }
 
 /* Series */
@@ -236,6 +254,11 @@
     background-color: rgb(255, 255, 255);
     transition: opacity 0.2s ease 0s;
 
+}
+
+.modal-open{
+    visibility: visible;
+    opacity: 1;
 }
 
 /* Modal Content */
