@@ -35,7 +35,7 @@ function FetchLocationTest() {
     if (main.classList.contains('presstype') || main.classList.contains('piecestype') || main.classList.contains('seriestype') || main.classList.contains('newstype')) {
         let type = main.classList;
 
-        let fetchLink = "http://viktorkacenak.com/MrKriss/wordpress/wp-json/wp/v2/" + type + "?_embed";
+        let fetchLink = "http://viktorkacenak.com/MrKriss/wordpress/wp-json/wp/v2/" + type + "?per_page=15&_embed";
         console.log(fetchLink);
         JSONFetch(fetchLink, type);
     }
@@ -53,12 +53,13 @@ function JSONFetch(link, type) {
 
             switch (type[0]) {
                 case "piecestype":
-                    console.log(type);
-
+                    main.classList.remove("piecestype");
+                    createPieces(data);
 
                     break;
 
                 case "seriestype":
+                    main.classList.remove("seriestype");
                     createSeries(data);
 
                     break;
@@ -82,88 +83,125 @@ function JSONFetch(link, type) {
     request.send();
 }
 
-function createSeries(data) {
-    console.log(data);
-    var template = document.querySelector(".seriesTemplate").content;
-    for (i = 0; i < data.length; i++) {
-        const clone = template.cloneNode(true);
-        clone.querySelector('.series__box__src').src = data[i].cover_image.guid;
-        clone.querySelector('.series__box__title').innerHTML = data[i].title.rendered;
-
-
-        document.querySelector('.series').appendChild(clone);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /// GALLERY
-document.querySelector(".personal-button").addEventListener("click", showPersonal);
-document.querySelector(".series-button").addEventListener("click", showSeries);
-document.querySelector(".commercial-button").addEventListener("click", showCommercial);
+var c = 0;
+var p = 0;
+var modal = document.getElementById("myModal");
+var image = 0;
+var title = 0;
+var number = 0;
+var numberE = 0;
+var personalData = [];
+var commercialData = [];
+var actualNumber = 0;
+var haha = 0;
+
+function createSeries(data) {
+
+    if (!document.querySelector('.series').classList.contains('series-fetched')) {
+        console.log(data);
+        var template = document.querySelector(".seriesTemplate").content;
+        for (i = 0; i < data.length; i++) {
+            const clone = template.cloneNode(true);
+            clone.querySelector('.series__box__src').src = data[i].cover_image.guid;
+            clone.querySelector('.series__box__title').innerHTML = data[i].title.rendered;
+            document.querySelector('.series').appendChild(clone);
+            document.querySelector('.series').classList.add('series-fetched');
+        }
+    }
 
 
-function showPersonal() {
-    document.querySelector(".personal").style.visibility = "visible";
-    document.querySelector(".personal").style.opacity = "1";
-    document.querySelector(".personal-button").classList.add('active');
-    hideSeries();
-    hideCommercial();
+
 }
 
-function showSeries() {
-    document.querySelector(".series").style.visibility = "visible";
-    document.querySelector(".series").style.opacity = "1";
-    document.querySelector(".series-button").classList.add('active');
-    hidePersonal();
-    hideCommercial();
-    main.classList.add("seriestype");
+function createPieces(data) {
+    if (document.querySelector(".commercial-button").checked) {
+        console.log(data);
+        if (!document.querySelector('.commercial').classList.contains('commercial-fetched')) {
+            console.log(data);
+            var template = document.querySelector(".commercialTemplate").content;
+            for (i = 0; i < data.length; i++) {
+                if (data[i].categories[0] == 3) {
+                    const clone = template.cloneNode(true);
+                    commercialData[c] = data[i];
+                    c++;
+                    console.log(c);
+                    clone.querySelector('.series__box__src').src = data[i].image.guid;
+                    clone.querySelector('.series__box__title').innerHTML = data[i].title.rendered;
+                    clone.querySelector('.commercial__box').id = data[i].id;
+                    clone.querySelector('.commercial__box__number').innerHTML = c;
+
+                    document.querySelector('.commercial').appendChild(clone);
+                    document.querySelector('.commercial').classList.add('commercial-fetched');
+                }
+
+            }
+        }
+    }
+
+
+    if (document.querySelector(".personal-button").checked) {
+        if (!document.querySelector('.personal').classList.contains('personal-fetched')) {
+            console.log(data);
+            var template2 = document.querySelector(".personalTemplate").content;
+            for (i = 0; i < data.length; i++) {
+                if (data[i].categories[0] == 2) {
+                    const clone = template2.cloneNode(true);
+                    personalData[p] = data[i];
+                    p++;
+                    clone.querySelector('.personal__box__src').src = data[i].image.guid;
+                    clone.querySelector('.personal__box').id = data[i].id;
+                    clone.querySelector('.personal__box__title').innerHTML = data[i].title.rendered;
+                    clone.querySelector('.personal__box__number').innerHTML = p;
+
+                    document.querySelector('.personal').appendChild(clone);
+                    document.querySelector('.personal').classList.add('personal-fetched');
+
+
+                }
+            }
+
+
+
+
+
+        }
+    }
+    /* console.log(personalData[4]); */
+}
+
+
+    checkButtons();
+
+
+
+function checkButtons() {
+    document.querySelector(".personal").classList.remove('personal-active');
+    document.querySelector(".series").classList.remove('series-active');
+    document.querySelector(".commercial").classList.remove('commercial-active');
+
+    if (document.querySelector(".personal-button").checked) {
+        document.querySelector(".personal").classList.add('personal-active');
+        main.classList.add("piecestype");
+    }
+    if (document.querySelector(".series-button").checked) {
+        document.querySelector(".series").classList.add('series-active');
+        main.classList.add("seriestype");
+    }
+    if (document.querySelector(".commercial-button").checked) {
+        document.querySelector(".commercial").classList.add('commercial-active');
+        main.classList.add("piecestype");
+    }
     FetchLocationTest();
-
 }
 
-function showCommercial() {
-    document.querySelector(".commercial").style.visibility = "visible";
-    document.querySelector(".commercial").style.opacity = "1";
-    document.querySelector(".commercial-button").classList.add('active');
-    hidePersonal();
-    hideSeries();
-}
 
-function hideSeries() {
-    document.querySelector(".series").style.visibility = "hidden";
-    document.querySelector(".series").style.opacity = "0";
-    document.querySelector(".series-button").classList.remove('active');
-}
-
-function hidePersonal() {
-    document.querySelector(".personal").style.visibility = "hidden";
-    document.querySelector(".personal").style.opacity = "0";
-    document.querySelector(".personal-button").classList.remove('active');
-}
-
-function hideCommercial() {
-    document.querySelector(".commercial").style.visibility = "hidden";
-    document.querySelector(".commercial").style.opacity = "0";
-    document.querySelector(".commercial-button").classList.remove('active');
-}
 
 var slideIndex = 1;
 var slides = document.getElementsByClassName("image-lightbox-open");
 var n = 1;
 var x = 0;
+
 
 
 function toggleFullscreen(elem) {
@@ -182,34 +220,61 @@ function toggleFullscreen(elem) {
 }
 
 function closeModal() {
-    document.getElementById("myModal").style.visibility = "hidden";
-    document.getElementById("myModal").style.opacity = "0";
+    modal.classList.remove('modal-open');
 }
 
 function minusSlides() {
-    x = slideIndex;
-    if (x == 1) {
-        slideIndex = slides.length;
+    actualNumber = number;
+
+    if (actualNumber == 1) {
+        actualNumber = ActiveArrayLength;
+        actualNumber--;
     } else {
-        slideIndex--;
+        actualNumber--;
+        actualNumber--;
     }
-    showSlides(slideIndex);
+    /*     console.log(personalData[actualNumber].id); */
+    console.log(actualNumber);
+    x = ActiveArray[actualNumber].id;
+    showSlides(x);
 }
 
 function plusSlides() {
-    x = slideIndex;
-    if (x == slides.length) {
-        slideIndex = 1;
+
+    actualNumber = number;
+    if (actualNumber == ActiveArrayLength) {
+        actualNumber = 0;
     } else {
-        slideIndex++;
+        actualNumber;
     }
+    /*     console.log(personalData[actualNumber].id); */
+    console.log(actualNumber);
+
+    x = ActiveArray[actualNumber].id;
+    showSlides(x);
+}
+
+
+function openLightbox(e) {
+
+    console.log(e);
+    modal.classList.add('modal-open');
+    slideIndex = e.id;
     showSlides(slideIndex);
 
 
 }
 
-document.querySelectorAll(".image-lightbox-open").forEach(function (e) {
+function openSerie(e) {
+    console.log(e);
+
+}
+
+
+/* document.querySelector(".image-lightbox-open").forEach(function (e) {
     e.addEventListener("click", function () {
+        console.log('hha');
+
         document.getElementById("myModal").style.visibility = "visible";
         document.getElementById("myModal").style.opacity = "1";
         slideIndex = e.id;
@@ -217,25 +282,40 @@ document.querySelectorAll(".image-lightbox-open").forEach(function (e) {
 
         console.log(document.getElementById(slideIndex).firstElementChild.outerHTML);
     })
-})
+}) */
 
 function showSlides(n) {
-    var image = document.getElementById(slideIndex).firstElementChild.outerHTML;
-    var title = document.getElementById(slideIndex).firstElementChild.nextElementSibling.firstElementChild
-        .innerHTML;
-    var subtitle = document.getElementById(slideIndex).firstElementChild.nextElementSibling
-        .firstElementChild
-        .nextElementSibling.innerHTML;
-    var description = document.getElementById(slideIndex).firstElementChild.nextElementSibling
-        .firstElementChild
-        .nextElementSibling.nextElementSibling.innerHTML;
-    console.log(n);
+    if (document.querySelector(".commercial-button").checked) {
+        ActiveArrayLength = commercialData.length;
+        ActiveArray = commercialData;
+        image = document.getElementById(n).firstElementChild.firstElementChild.outerHTML;
+        title = document.getElementById(n).firstElementChild.nextElementSibling.firstElementChild.innerHTML;
+        number = document.getElementById(n).firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerHTML;
+        console.log(number);
+        GalleryLength = c;
+    }
+    if (document.querySelector(".series-button").checked) {
 
+    }
+    if (document.querySelector(".personal-button").checked) {
+        ActiveArrayLength = personalData.length;
+        ActiveArray = personalData;
+        image = document.getElementById(n).firstElementChild.firstElementChild.outerHTML;
+        title = document.getElementById(n).firstElementChild.nextElementSibling.innerHTML;
+        number = document.getElementById(n).firstElementChild.nextElementSibling.nextElementSibling.innerHTML;
+        GalleryLength = p;
+    }
+
+    /* var description = document.getElementById(slideIndex).firstElementChild.nextElementSibling
+        .firstElementChild
+        .nextElementSibling.nextElementSibling.innerHTML; */
+    fillLightbox();
+}
+
+function fillLightbox() {
     document.querySelector(".lightbox-image-box").firstElementChild.innerHTML = image;
-    document.querySelector(".lightbox_text_title").innerHTML = title;
-    document.querySelector(".lightbox_text_subtitle").innerHTML = subtitle;
-    document.querySelector(".lightbox_text_description").innerHTML = description;
-    document.querySelector(".lightbox_text_number").innerHTML = (n + " / " + slides.length);
     console.log(title);
-
+    document.querySelector(".lightbox_text_title").innerHTML = title;
+    //  document.querySelector(".lightbox_text_description").innerHTML = description;
+    document.querySelector(".lightbox_text_number").innerHTML = (number + " / " + GalleryLength);
 }

@@ -44,32 +44,44 @@
     </nav>
 
     <main>
-        <section class="gallery personal-active">
+        <section class="gallery series-active">
             <div class="gallery__navigation">
-                <input class="personal-button" type="radio" name="gallery" value="male" checked onclick="checkButtons()"
-                    id="radio-1"><label class="cursor" for="radio-1">Personal work</label>
-                <input class="series-button" type="radio" name="gallery" value="female" onclick="checkButtons()"
-                    id="radio-2"><label class="cursor" for="radio-2">Series</label>
-                <input class="commercial-button" type="radio" name="gallery" value="other" onclick="checkButtons()"
-                    id="radio-3"><label class="cursor" for="radio-3">Commercial work</label>
+                <a href="gallery.html" id="personal" class="personal-button cursor">Personal work
+                </a>
+                <a href="gallery.html" id="personal" class="personal-button cursor">Series
+                </a>
+                <a href="gallery.html" id="personal" class="personal-button cursor">Commercial work
+                </a>
             </div>
-            <div class="gallery__container">
-
-                <div id="personal" class="personal">
-                </div>
-
-                <div id="series" class="series">
-                </div>
-
-                <div id="commercial" class="commercial">
-                </div>
-
+            <div class="gallery__container bg">
+                    <h2 class="serie__heading">Serie</h2>
+                    <h2 class="serie__description">Serie description</h2>
+                    <div id="serie" class="serie bg">
+                        <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open" alt="3">
+                            <div class="serie__box__image">
+                                <img class="serie__box__src" src="img/gallery/1.png" alt="Penguin">
+                            </div>
+                            <h2 class="serie__box__title">Penguin</h2>
+                            <h2 class="serie__box__number"></h2>
+                        </div>
+                    </div>
             </div>
         </section>
     </main>
 
-    <template class="seriesTemplate">
-        <a onclick="openSerie(this)" href="serie.html" class="series__box">
+
+    <template id="serieTemplate" class="serie bg">
+            <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open" alt="3">
+                <div class="serie__box__image">
+                    <img class="serie__box__src" src="img/gallery/1.png" alt="Penguin">
+                </div>
+                <h2 class="serie__box__title">Penguin</h2>
+                <h2 class="serie__box__number"></h2>
+            </div>
+        </div>
+
+    <template class="serieTemplate">
+        <div onclick="openLightbox(this)" class="series__box">
             <div class="series__box__image cursor image-lightbox-open">
                 <div class="series__box__image__frame">
                     <img class="series__box__src" src="img.jpg" alt="">
@@ -82,40 +94,11 @@
                 <button class="button-primary series__box__button cursor">View more</button>
 
             </div>
-        </a>
+        </div>
 
     </template>
 
 
-    <template class="commercialTemplate">
-            <div onclick="openLightbox(this)" class="commercial__box">
-                <div class="series__box__image cursor image-lightbox-open">
-                    <div class="series__box__image__frame">
-                        <img class="series__box__src" src="img.jpg" alt="">
-                    </div>
-                </div>
-    
-                <div class="series__box__text">
-                    <h2 class="series__box__title"></h2>
-                    <p class="series__box__description"></p>
-                    <p class="commercial__box__number"></p>
-                    <button class="button-primary series__box__button cursor">View more</button>
-    
-                </div>
-            </div>
-    
-        </template>
-
-    <template class="personalTemplate">
-            <div onclick="openLightbox(this)"  class="personal__box cursor image-lightbox-open" alt="3">
-                <div class="personal__box__image">
-                    <img class="personal__box__src" src="img/gallery/1.png" alt="Penguin">
-                </div>
-                <h2 class="personal__box__title">Penguin</h2>
-                <h2 class="personal__box__number"></h2>
-            </a>
-    
-    </template>
 
     <div id="myModal" class="lightbox">
         <div onclick="toggleFullscreen()" class="full-screen-box cursor">
