@@ -726,6 +726,7 @@ h2 {
   font-family: "Lato", sans-serif;
   border-radius: 3px;
   font-size: 2rem;
+  width: 100%;
   padding: 8px 35px;
   transition: all .3s ease-in; }
 
