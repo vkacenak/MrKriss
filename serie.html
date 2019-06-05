@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <meta name="description" content="This is series of artist Kristian Mensa">
+    <meta name="keywords" content="drawing,drawing with real objects,art,creative,">
+    <meta name="author" content="Kristian Mensa">
+
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
@@ -13,10 +17,10 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-    <title></title>
+    <title>Series</title>
 </head>
 
-<body>
+<body class="serie__web">
     <nav class="bar">
         <div class="bar__logo-comp">
             <div class="bar__logo-mask"></div>
@@ -53,93 +57,67 @@
                 <a href="gallery.html" id="personal" class="personal-button cursor">Commercial work
                 </a>
             </div>
-            <div class="gallery__container bg">
+            <div class="gallery__container">
                     <h2 class="serie__heading">Serie</h2>
-                    <h2 class="serie__description">Serie description</h2>
-                    <div id="serie" class="serie bg">
-                        <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open" alt="3">
-                            <div class="serie__box__image">
-                                <img class="serie__box__src" src="img/gallery/1.png" alt="Penguin">
-                            </div>
-                            <h2 class="serie__box__title">Penguin</h2>
-                            <h2 class="serie__box__number"></h2>
-                        </div>
+                    <div id="serie" class="serie">
                     </div>
             </div>
         </section>
     </main>
 
+    <div id="myModal" class="lightbox">
+            <div onclick="toggleFullscreen()" class="full-screen-box cursor">
+                <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
+            </div>
+    
+            <div onclick="closeModal()" class="close-box cursor">
+                <span class="close"></span>
+            </div>
+    
+            <div class="prev-box">
+                <div onclick="minusSlides()" class="arrow">
+                    <div class="arrow-top arrow-left-top"></div>
+                    <div class="arrow-bottom arrow-left-bottom"></div>
+                </div>
+            </div>
+            <div class="next-box">
+                <div onclick="plusSlides()" class="arrow">
+                    <div class="arrow-top arrow-right-top"></div>
+                    <div class="arrow-bottom arrow-right-bottom"></div>
+                </div>
+            </div>
+    
+            <div class="lightbox-image-box">
+                <div class="lightbox_image"><img src="" alt="">
+                </div>
+            </div>
+    
+            <div class="lightbox_text">
+                <h1 class="lightbox_text_title"></h1>
+                <p class="lightbox_text_number"></p>
+            </div>
+    
+        </div>
 
-    <template id="serieTemplate" class="serie bg">
-            <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open" alt="3">
+    <script src="js/main.js"></script>
+
+    <template class="serieTemplate">
+            <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open">
                 <div class="serie__box__image">
                     <img class="serie__box__src" src="img/gallery/1.png" alt="Penguin">
                 </div>
-                <h2 class="serie__box__title">Penguin</h2>
                 <h2 class="serie__box__number"></h2>
             </div>
         </div>
 
-    <template class="serieTemplate">
-        <div onclick="openLightbox(this)" class="series__box">
-            <div class="series__box__image cursor image-lightbox-open">
-                <div class="series__box__image__frame">
-                    <img class="series__box__src" src="img.jpg" alt="">
-                </div>
-            </div>
-
-            <div class="series__box__text">
-                <h2 class="series__box__title"></h2>
-                <p class="series__box__description"></p>
-                <button class="button-primary series__box__button cursor">View more</button>
-
-            </div>
-        </div>
-
-    </template>
+    
 
 
-
-    <div id="myModal" class="lightbox">
-        <div onclick="toggleFullscreen()" class="full-screen-box cursor">
-            <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
-        </div>
-
-        <div onclick="closeModal()" class="close-box cursor">
-            <span class="close"></span>
-        </div>
-
-        <div class="prev-box">
-            <div onclick="minusSlides()" class="arrow">
-                <div class="arrow-top arrow-left-top"></div>
-                <div class="arrow-bottom arrow-left-bottom"></div>
-            </div>
-        </div>
-        <div class="next-box">
-            <div onclick="plusSlides()" class="arrow">
-                <div class="arrow-top arrow-right-top"></div>
-                <div class="arrow-bottom arrow-right-bottom"></div>
-            </div>
-        </div>
-
-        <div class="lightbox-image-box">
-            <div class="lightbox_image"><img src="img.png" alt="">
-            </div>
-        </div>
-
-        <div class="lightbox_text">
-            <h1 class="lightbox_text_title"></h1>
-            <h2 class="lightbox_text_subtitle"></h2>
-            <p class="lightbox_text_description"></p>
-            <p class="lightbox_text_number"></p>
-        </div>
-
-    </div>
 
     <footer class="footer">
 
     </footer>
-    <script src="js/main.js"></script>
+    
 
     <script>
 
