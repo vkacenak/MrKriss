@@ -4,13 +4,19 @@ var bigLogo = document.querySelector('.bar__logo-big');
 var smallLogo = document.querySelector('.bar__logo-small');
 var main = document.querySelector('main');
 
+/// BURGER MENU TOGGLE
 burger.addEventListener('click', function () {
     burger.classList.toggle('bar__burger-open');
     bar.classList.toggle('bar-open');
+    main.addEventListener('click', function(){
+        bar.classList.remove('bar-open');
+        burger.classList.remove('bar__burger-open');
+    })
 
 });
 
-// SCROLL STUFF 
+
+// NAVBAR CHANGE ON SCROLL 
 function ScrollPlease(x) {
     if (x.matches) { // If media query matches
         window.onscroll = () => {
@@ -28,8 +34,13 @@ var x = window.matchMedia("(max-width: 700px)")
 ScrollPlease(x) // Call listener function at run time
 x.addListener(ScrollPlease);
 
+
+FetchLocationTest();
+
 /// FETCHING STUFF
 
+
+//Checks whether there is something to fetch on page, if there is, builds link accordingly
 function FetchLocationTest() {
     if (main.classList.contains('presstype') || main.classList.contains('piecestype') || main.classList.contains('seriestype') || main.classList.contains('newstype')) {
         let type = main.classList;
@@ -40,6 +51,7 @@ function FetchLocationTest() {
     }
 }
 
+// Fetch function
 function JSONFetch(link, type) {
 
     console.log(type);
@@ -56,38 +68,71 @@ function JSONFetch(link, type) {
                 case "piecestype":
                     main.classList.remove("piecestype");
                     createPieces(data);
-
                     break;
 
                 case "seriestype":
                     main.classList.remove("seriestype");
                     createSeries(data);
-
                     break; /*  */
 
                 case "seriesFull":
                     createSeriesFull(data);
-
                     break;
 
                 case "presstype":
                     console.log(type);
+                    createPress(data);
                     break;
-
-
 
                 case "newstype":
                     console.log(type);
+                    createNews(data);
                     break;
-
             }
-            // createHTML(data);
+            
             console.log(data);
         }
     };
 
     request.send();
 }
+
+// TEMPLATE PRODUCTION FOR PRESS ON MAIN PAGE
+function createPress(data) {
+    console.log(data);
+    var template = document.querySelector(".pressTemplate").content;
+    for (i = 0; i < data.length; i++) {
+        const clone = template.cloneNode(true);
+      clone.querySelector('.press__title').innerHTML = data[i].title.rendered;
+      clone.querySelector('.press__source').innerHTML = 'By ' + data[i].source;
+      clone.querySelector('.press__link').href =  data[i].link;
+
+
+    
+       document.querySelector('.press__list').appendChild(clone);
+
+       if (data[i].featured == "1"){
+          document.querySelector('.press-featured h3').innerHTML = data[i].title.rendered;
+          document.querySelector('.press-featured h4').innerHTML = data[i].source;
+          document.querySelector('.press-featured a').href = data[i].link;
+       }
+    }
+}
+
+// TEMPLATE PRODUCTION FOR NEWS ON NEWS PAGE
+
+function createNews(data) {
+    console.log(data);
+    var template = document.querySelector(".newsTemplate").content;
+    for (i = 0; i < data.length; i++) {
+        const clone = template.cloneNode(true);
+      clone.querySelector('.news__article--heading h3').innerHTML = data[i].title.rendered;
+      clone.querySelector('.news__article--image').src = data[i].image.guid;
+       document.querySelector('.news__articles').appendChild(clone);
+
+}
+}
+
 
 //////////// GALLERY /////////////
 
