@@ -1,0 +1,88 @@
+// COLOR VARIABLES
+$color-primary: #ffbd55;
+$color-secondary: #f3c781;
+
+$color-grey: #707070;
+$color-black: #2F2F31;
+// $color-secondary: #B28451;
+
+// FONT VARIABLES
+$font-secondary: 'Lato',
+sans-serif;
+$font-primary: 'Gothic A1',
+sans-serif;
+
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 85em; // 1200px
+$bp-large: 65em; // 1000px
+$bp-medium: 50em; // 800px;
+$bp-small: 37.5em; // 600px;
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 56.25% //1 rem = 9px, 9/16 = 50%
+    }
+
+
+
+
+
+}
+
+body {
+    font-family: $font-primary;
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 1.6rem;
+
+}
+
+main {
+    min-height: 200vh;
+    padding-left: 8.6rem;
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 0;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 80%;
+  
+}

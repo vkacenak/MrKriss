@@ -1,0 +1,307 @@
+//LEFT SMALL BAR WITH BURGER MENU AND SOCIAL MEDIA ICONS
+.bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8.6rem;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09), 0 3px 6px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    transition: all 0.3s;
+
+    @media only screen and (max-width: $bp-small) {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: none;
+        width: 100%;
+        height: 7rem;
+        padding-bottom: 2rem;
+
+    }
+
+
+
+    &__logo-small {
+        position: absolute;
+        width: 3.5rem;
+        display: block;
+        margin: 4rem 2.1rem;
+        z-index: 3;
+
+        @media only screen and (max-width: $bp-small) {
+            margin: 2rem auto;
+            width: 4rem;
+            top: 0rem;
+
+        }
+
+
+    }
+
+    &__logo-comp {
+        @media only screen and (max-width: $bp-small) {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-1rem);
+            z-index: 3;
+
+        }
+    }
+
+    &__logo-big {
+        position: absolute;
+        width: 10rem;
+        top: 4.5rem;
+        left: -8rem;
+        transition: all 0.5s;
+
+        @media only screen and (max-width: $bp-small) {
+            opacity: 0;
+            top: -8rem;
+            left: 0;
+            transform: translateX(-4rem);
+        }
+    }
+
+    &__logo-mask {
+        background-color: white;
+        width: 4.5rem;
+        height: 7rem;
+        position: absolute;
+        top: 2rem;
+        z-index: 2;
+
+        @media only screen and (max-width: $bp-small) {
+            display: none
+        }
+    }
+
+
+    &__content {
+        position: absolute;
+        left: -100%;
+        top: 30%;
+        opacity: 0;
+        transition: all 0.3s;
+
+        & a {
+            font-family: $font-secondary;
+            display: block;
+            font-size: 2rem;
+            letter-spacing: 0;
+            font-weight: 600;
+
+        }
+
+    }
+
+    &__burger {
+        font-size: 30px;
+        position: absolute;
+        top: 40%;
+        left: 2.2rem;
+        display: block;
+        width: 1.2em;
+        height: 2em;
+        margin: 0 auto;
+        cursor: pointer;
+        z-index: 5;
+
+        @media only screen and (max-width: $bp-small) {
+            top: 3rem;
+            left: 3.5rem;
+            width: 3rem;
+            height: 2rem;
+
+        }
+
+        & span {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 0.1em;
+            margin-top: -0.1em;
+            background-color: $color-primary;
+            transition: background-color 0.3s;
+            transition: transform 0.3s;
+            border-radius: 1rem;
+
+        }
+
+        // TRANSLATING TOP AND BOTTOM LINE
+        &-1 {
+            transform: translateY(-1rem);
+
+        }
+
+        &-3 {
+            transform: translateY(1rem);
+
+        }
+
+        // STYLING WHEN BURGER CLICKED
+        &.bar__burger-open .bar__burger-1 {
+            transform: translateY(-0.25em) translateX(-0.65em) rotate(-45deg) scaleX(0.6);
+
+            @media only screen and (max-width: $bp-small) {
+                transform: translateY(0em) translateX(0em) rotate(-45deg) scaleX(1);
+            }
+
+        }
+
+
+        &.bar__burger-open .bar__burger-2 {
+            opacity: 0;
+        }
+
+        &.bar__burger-open .bar__burger-3 {
+            transform: translateY(0.25em) translateX(-0.65em) rotate(45deg) scaleX(0.6);
+
+            @media only screen and (max-width: $bp-small) {
+                transform: translateY(0em) translateX(0) rotate(45deg) scaleX(1);
+            }
+        }
+
+    }
+
+    &__social {
+        position: absolute;
+        left: 3rem;
+        bottom: 5%;
+
+
+        & img {
+            display: block;
+            height: 2rem;
+            transition: all 0.5s;
+            margin: 3rem 0;
+        }
+
+        &-fb {
+            padding-left: 0.5rem;
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            left: -3rem;
+        }
+
+
+    }
+
+      //SCROLLED STATE OF MENU
+
+      &.scrolled {
+        background-color: rgba(255, 255, 255, 1);
+
+        & .bar__logo-small {
+            opacity: 0;
+        }
+
+        & .bar__logo-big {
+            top: 2rem;
+            opacity:1;
+        }
+    }
+
+
+    // OPEN STATE OF MENU
+
+    //PHONE
+    @media only screen and (max-width: $bp-small) {
+
+      
+
+        &-open {
+            height: 100%;
+
+
+            & .bar__content {
+                height: 100vh;
+                width: 100vw;
+                background-color: white;
+                top: 0;
+                left: 0;
+                opacity: 1;
+                padding: 3.5rem;
+                padding-top: 15rem;
+
+                & a {
+                    padding: 0.4rem;
+                    font-size: 2.8rem;
+                }
+            }
+
+            & .bar__social {
+                text-align: center;
+                z-index: 3;
+                width: 100%;
+                bottom: 5%;
+                display: block;
+                left: 0;
+
+                & img {
+                    display: inline-block;
+                    margin: 3rem;
+                    height: 3.2rem;
+
+                }
+            }
+
+            & .bar__logo-big {
+                opacity: 1;
+                z-index: 3;
+                top: 2.8rem;
+
+
+            }
+
+            & .bar__logo-mask,
+            & .bar__logo-small {
+                display: none;
+
+            }
+
+        }
+    }
+
+    //DESKTOP
+    @media only screen and (min-width: $bp-small) {
+        &-open {
+            width: 33rem;
+
+            & .bar__social {
+                left: 50%;
+                transform: translateX(-50%);
+
+                & img {
+                    display: inline-block;
+                    margin: 1rem;
+                    height: 2.5rem;
+                }
+            }
+
+            & .bar__content {
+                opacity: 1;
+                left: 9rem;
+            }
+
+            & .bar__logo-big {
+                left: 2.7rem;
+            }
+
+            & .bar__logo-mask {
+                left: -5rem;
+                width: 10rem;
+            }
+
+            & .bar__logo-comp {
+                transform: translateX(7rem);
+                transition: transform 0.5s;
+
+            }
+        }
+    }
+
+}

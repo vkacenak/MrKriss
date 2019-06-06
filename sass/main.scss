@@ -1,0 +1,32 @@
+@import "base";
+@import "typography";
+@import "navigation";
+@import "landing";
+@import "news";
+@import "shop";
+@import "shop_item";
+@import "footer";
+@import "dance";
+
+
+.gallery{
+     
+
+    &__image {
+        width: 45rem !important;
+        height: auto !important;
+        margin: 7rem 7rem 0 7rem;
+    }
+   & .container {
+    width: 104rem;
+       margin: 0 auto;
+    -webkit-column-count: 2;
+    -webkit-column-gap:   0px;
+    -moz-column-count:    2;
+    -moz-column-gap:      0px;
+    column-count:         2;
+       }
+        
+       
+    
+}
