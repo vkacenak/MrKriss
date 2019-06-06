@@ -16,11 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-
-    <meta name="description" content="Gallery of artwoks by Kristian Mensa">
-    <meta name="keywords"
-        content="Mr. Kriss, Kristian Mensa, Creative art, original art Prague,drawing,drawing with real objects,art,creative,real life objects art, connection design,">
-
+    <meta name="description" content="This is gallery of artist Kristian Mensa">
+    <meta name="keywords" content="drawing,drawing with real objects,art,creative,">
     <meta name="author" content="Kristian Mensa">
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
@@ -30,36 +27,55 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-
-    <title>Kristán Mensa - Gallery</title>
-
+    <title>Gallery</title>
 </head>
 
 <body class="gallery__web">
-        <nav class="bar">
-                <div class="bar__logo-comp">
-                    <div class="bar__logo-mask"></div>
-                    <a href="index.html"><img src="img/logo.png" alt="" class="bar__logo-big"></a>
-                    <a href="index.html"><img src="img/logo-1.png" alt="" class="bar__logo-small"></a>
+    <nav class="bar">
+        <div class="bar__logo-comp">
+            <div class="bar__logo-mask"></div>
+            <a href="index.html"><img src="img/logo.png" alt="" class="bar__logo-big"></a>
+            <a href="index.html"><img src="img/logo-1.png" alt="" class="bar__logo-small"></a>
+        </div>
+        <div class="bar__burger">
+            <span class="bar__burger-1"></span>
+            <span class="bar__burger-2"></span>
+            <span class="bar__burger-3"></span>
+        </div>
+        <div class="bar__social">
+            <img src="img/ig-icon.png" alt="">
+            <img src="img/dribble-icon.png" alt="">
+            <img src="img/fb-icon.png" class="bar__social-fb" alt="">
+        </div>
+        <div class="bar__content">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Gallery</a>
+            <a href="#">Shop</a>
+            <a href="#">Dance</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="gallery personal-active">
+            <div class="gallery__navigation">
+                <input class="personal-button" type="radio" name="gallery" value="male" checked onclick="checkButtons()"
+                    id="radio-1"><label class="cursor" for="radio-1">Personal work</label>
+                <input class="series-button" type="radio" name="gallery" value="female" onclick="checkButtons()"
+                    id="radio-2"><label class="cursor" for="radio-2">Series</label>
+                <input class="commercial-button" type="radio" name="gallery" value="other" onclick="checkButtons()"
+                    id="radio-3"><label class="cursor" for="radio-3">Commercial work</label>
+            </div>
+            <div class="gallery__container">
+
+                <div id="personal" class="personal">
                 </div>
-                <div class="bar__burger">
-                    <span class="bar__burger-1"></span>
-                    <span class="bar__burger-2"></span>
-                    <span class="bar__burger-3"></span>
+
+                <div id="series" class="series">
                 </div>
-                <div class="bar__social">
-                    <a href="https://www.instagram.com/mr.kriss/"><img src="img/ig-icon.png" alt=""></a>
-                    <a href=""> <img src="img/dribble-icon.png" alt=""></a>
-                    <a href="https://www.facebook.com/worldbykriss/"> <img src="img/fb-icon.png" class="bar__social-fb"
-                            alt=""></a>
-                </div>
-                <div class="bar__content">
-                    <a href="index.html">Home</a>
-                    <a href="news.html">News</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="shop.html">Shop</a>
-                    <a href="dance.html">Dance</a>
-                    <a href="#contact">Contact</a>
+
+                <div id="commercial" class="commercial">
                 </div>
             </nav>
 
@@ -97,7 +113,7 @@
             </div>
 
             <div class="series__box__text">
-                <h2 class="series__box__title"></h2>
+                <h2 class="commercial__box__title"></h2>
                 <p class="series__box__description"></p>
                 <button class="button-primary series__box__button cursor">View more</button>
 

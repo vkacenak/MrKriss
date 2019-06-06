@@ -898,12 +898,10 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin: 1rem 3rem 1rem 0; }
-  
 
-
-     
-
-.footer__social img {
+  .footer__social {
+    align-self: right; }
+    .footer__social img {
       height: 3rem;
       margin-right: 1.5rem;
       margin-top: 1rem; }
