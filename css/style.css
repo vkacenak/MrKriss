@@ -32,6 +32,21 @@ a {
   text-decoration: none;
   color: black; }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%; }
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 80%; }
+
 h1, h2, h3, h4 {
   font-family: "Lato", sans-serif; }
 
@@ -53,6 +68,7 @@ h2 {
   height: 0.5rem; }
 
 .button-primary {
+  cursor: pointer;
   background-color: #ffbd55;
   font-weight: 500;
   color: white;
@@ -68,6 +84,7 @@ h2 {
     color: #ffbd55; }
 
 .button-secondary {
+  cursor: pointer;
   background-color: white;
   font-weight: 500;
   color: #ffbd55;
@@ -307,12 +324,63 @@ h2 {
     margin-bottom: 3.5rem;
     max-width: 40rem; }
 
+.style {
+  margin: 0 13rem;
+  position: relative;
+  margin-bottom: 8rem;
+  display: grid;
+  grid-template-columns: 2fr 3fr; }
+  @media only screen and (max-width: 65em) {
+    .style {
+      grid-template-columns: 1fr;
+      margin: 0 5rem; } }
+  .style__text {
+    display: block; }
+    .style__text h2 {
+      margin-top: 10rem; }
+    .style__text p {
+      margin-top: 3rem;
+      font-size: 1.7rem; }
+  .style__images {
+    height: 55rem;
+    position: relative; }
+    .style__images img {
+      position: absolute; }
+  .style img {
+    position: absolute; }
+  .style__1 {
+    height: 25rem;
+    top: 65%;
+    left: 55%;
+    z-index: 3; }
+  .style__2 {
+    height: 25rem;
+    top: 10%;
+    left: 55%;
+    z-index: 3; }
+  .style__3 {
+    height: 45rem;
+    left: 20%;
+    top: 20%; }
+  @media only screen and (max-width: 37.5em) {
+    .style__1 {
+      height: 15rem;
+      left: 40%;
+      top: 55%; }
+    .style__2 {
+      height: 15rem;
+      left: 40%;
+      top: 10%; }
+    .style__3 {
+      height: 30rem;
+      left: 10%; } }
+
 .about {
   margin-top: 6rem;
   margin-bottom: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr; }
-  @media only screen and (max-width: 37.5em) {
+  @media only screen and (max-width: 65em) {
     .about {
       grid-template-columns: 1fr; }
       .about img {
@@ -327,7 +395,7 @@ h2 {
     margin: 5rem;
     margin-top: 6rem; }
     .about-text p {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       width: 80%;
       margin-bottom: 1.5rem; }
     .about-text .heading-line {
@@ -370,6 +438,9 @@ h2 {
     right: 5rem;
     bottom: 5rem;
     color: white; }
+    .press-featured a:hover {
+      right: 4rem;
+      transition-duration: 0.5s; }
     .press-featured a span {
       letter-spacing: -2px; }
 
@@ -397,6 +468,9 @@ h2 {
       @media only screen and (max-width: 50em) {
         .press__list-item:nth-of-type(2n) {
           border: none; } }
+    .press__list-item:hover p {
+      transition-duration: 0.2s;
+      color: #ffbd55; }
     .press__list-item .bullet {
       grid-row: 1 span 2;
       background-color: #ffbd55;
@@ -424,10 +498,16 @@ h2 {
     @media only screen and (max-width: 50em) {
       .cv-images {
         grid-template-columns: 1fr; } }
+  .cv-part:hover img {
+    transform: translateY(-1rem);
+    transition-duration: 0.2s; }
+  .cv-part:hover p {
+    color: #ffbd55; }
   .cv p {
     margin-bottom: 4rem;
+    font-family: "Lato", sans-serif;
     font-size: 1.6rem;
-    font-weight: 500; }
+    font-weight: 700; }
   .cv img {
     height: 30rem; }
     @media only screen and (max-width: 50em) {
@@ -782,19 +862,15 @@ h2 {
     grid-row: 3;
     grid-column: 2; } }
 
-
 .footer {
   padding-left: 8.6rem;
   background-color: #5c5c5c;
   width: 100%;
   display: grid;
   grid-template-columns: 5fr 3fr; }
-  @media only screen and (max-width: 37.5em) {
-    .footer {
-      padding: 0; } }
   .footer__stuff {
     grid-column: 1;
-    grid-row: -1;
+    grid-row: 1;
     color: white;
     margin-left: 11rem;
     margin-top: 8rem; }
@@ -828,6 +904,9 @@ h2 {
       height: 3rem;
       margin-right: 1.5rem;
       margin-top: 1rem; }
+      .footer__social img:hover {
+        transform: translateY(-0.5rem);
+        transition-duration: 0.2s; }
   .footer__form {
     background-color: #ffbd55;
     grid-column: 2;
@@ -877,10 +956,20 @@ h2 {
       font-size: 1.3rem; }
   @media only screen and (max-width: 65em) {
     .footer {
-      grid-template-columns: 1fr; }
+      display: block; }
+      .footer__form {
+        display: block; }
       .footer__stuff {
-        grid-row: 2;
-        grid-column: -1; }
+        margin: 5rem 3rem;
+        grid-row: 2; }
+      .footer__2-col {
+        grid-template-columns: 1fr; }
+      .footer__social {
+        text-align: center; }
+        .footer__social h2 {
+          text-align: left; }
+        .footer__social img {
+          margin: 1rem 4rem 3rem 4rem; }
       .footer__white-hack {
         display: none; }
       .footer__form {
@@ -892,13 +981,53 @@ h2 {
         .footer__form form {
           width: 60%;
           margin: 5rem; } }
-  @media only screen and (max-width: 65em) {
-    .footer__form {
-      display: block; }
-    .footer__stuff {
-      margin: 5rem 3rem; }
-    .footer__2-col {
-      grid-template-columns: 1fr; } }
+  @media only screen and (max-width: 37.5em) {
+    .footer {
+      padding: 0; }
+      .footer__form {
+        display: block;
+        padding: 4rem 0 5rem 0; }
+        .footer__form form {
+          margin: 4rem auto; }
+        .footer__form h2 {
+          font-size: 3.5rem;
+          display: block;
+          width: 60%;
+          margin: 2rem auto; } }
+
+.dance__video {
+  min-width: 100%;
+  min-height: 100%; }
+
+.dance__text {
+  font-size: 2rem;
+  width: 50rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  position: absolute; }
+
+.dance__info {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../img/dance-2.png");
+  background-position: right;
+  background-size: 80%;
+  background-repeat: no-repeat; }
+  .dance__info p {
+    top: 20%;
+    left: 10%; }
+
+.dance__first {
+  margin-top: 5rem;
+  position: relative;
+  width: 100%; }
+  .dance__first img {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 4rem; }
 
 .gallery__image {
   width: 45rem !important;

@@ -1,5 +1,7 @@
 // COLOR VARIABLES
 $color-primary: #ffbd55;
+$color-secondary: #f3c781;
+
 $color-grey: #707070;
 $color-black: #2F2F31;
 // $color-secondary: #B28451;
@@ -35,10 +37,10 @@ html {
     @media only screen and (max-width: $bp-medium) {
         font-size: 56.25% //1 rem = 9px, 9/16 = 50%
     }
-  
 
 
-  
+
+
 
 }
 
@@ -55,8 +57,8 @@ main {
     padding-left: 8.6rem;
 
     @media only screen and (max-width: $bp-small) {
-       padding:0;
-      }
+        padding: 0;
+    }
 }
 
 a {
@@ -66,6 +68,20 @@ a {
 
 }
 
-.footer{
-    
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 80%;
+  
 }

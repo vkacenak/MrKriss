@@ -14,7 +14,7 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-    <title></title>
+    <title>title</title>
 </head>
 
 <body>
@@ -56,13 +56,27 @@
 
                 </h2>
 
-                <button class="button-primary">View my work</button>
-                <button class="button-secondary">See what's new</button>
+                <a href="gallery.html" class="button-primary">View my work</a>
+                <a href="news.html" class="button-secondary">See what's new</a>
 
             </div>
 
         </section>
-
+        <section class="style">
+            <div class="style__text">
+                <h2>My style</h2>
+                <div class="heading-line"></div>
+                <p>I love to give a new meaning to everything people see and use every day. To look at things not by
+                    they purpose, but by their looks and through that work my way until I can make something completely
+                    different out of it. Once you start thinking out of the box even in the little terms, whole world
+                    opens up to you and incredible things happen.</p>
+            </div>
+            <div class="style__images">
+                <img src="img/landing-img-2.jpg" alt="" class="style__1">
+                <img src="img/landing-img.png" alt="" class="style__2">
+                <img src="img/sea-piece.png" alt="" class="style__3">
+            </div>
+        </section>
         <section class="about">
             <div class="about-image">
                 <img src="img/kriss-brush.png" alt="">
@@ -102,45 +116,52 @@
             <h2>My Resume</h2>
             <div class="heading-line"></div>
             <div class="cv-images">
-                <div class="cv-part">
+                <a href="img/seaweedimg.jpg" class="cv-part">
                     <p>Seaweed</p>
                     <img src="img/seaweed.png" alt="">
-                </div>
-                <div class="cv-part">
+                </a>
+                <a href="img/cv.pdf" class="cv-part">
                     <p>CV</p>
                     <img src="img/cv.png" alt="">
-                </div>
+                </a>
 
             </div>
         </section>
         <section class="instagram">
             <h2>Follow my work on Instagram</h2>
             <div class="heading-line"></div>
-            <div class="instagram__acc">
-                <img src="img/kriss-account.jpg" alt="">
-                <p>Kristián Mensa</p>
-                <p>Mr. Kriss</p>
-            </div>
+            <a href="https://www.instagram.com/mr.kriss/">
+                <div class="instagram__acc">
+                    <img src="img/kriss-account.jpg" alt="">
+                    <p>Kristián Mensa</p>
+                    <p>Mr. Kriss</p>
+                </div>
+            </a>
 
             <!-- LightWidget WIDGET -->
+            <!-- LightWidget WIDGET -->
+            <!-- LightWidget WIDGET -->
             <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe
-                src="//lightwidget.com/widgets/ca91239315df59d99de33d381055df21.html" scrolling="no"
-                allowtransparency="true" class="lightwidget-widget"
-                style="width:100%;border:0;overflow:hidden; "></iframe>
-
+                src="//lightwidget.com/widgets/06477eee72c2510fbf51f38c7a669825.html"  class="lightwidget-widget"
+                style="width:100%;border:0;overflow:hidden;"></iframe>
+           
 
             <button class="button-primary">Follow me</button>
         </section>
 
     </main>
 
-    </section>
+   
     <template class="pressTemplate">
+
         <div class="press__list-item">
             <div class="bullet"></div>
-            <p class="press__title">World's smartest teens 2018</p>
-            <p class="press__source">By Wired Panda</p>
+            <a href="" class="press__link">
+                <p class="press__title">World's smartest teens 2018</p>
+                <p class="press__source">By Wired Panda</p>
+            </a>
         </div>
+
     </template>
 
     <footer class="footer">
@@ -148,18 +169,18 @@
             <h2>Don't be a stranger, <br>just say hello!</h2>
             <form>
                 <label for="Email">Email</label>
-                <input type="email" name="Email" placeholder="PeterParker@gmail.com" required>
+                <input type="email" name="Email" id="Email" placeholder="PeterParker@gmail.com" required>
                 <label for="Name">Full Name</label>
-                <input type="text" name="Name" placeholder="Peter" required>
+                <input type="text" name="Name" placeholder="Peter" id="Name" required>
                 <label for="message">Your message</label>
-                <textarea placeholder="Hey, listen up..." name="message" required></textarea>
+                <textarea placeholder="Hey, listen up..." name="message" id="message" required></textarea>
 
                 <input type="submit" value="Submit">
             </form>
         </section>
         <div class="footer__white-hack"></div>
         <section class="footer__stuff">
-           
+
 
             <h2>Contact Stuff</h2>
             <div class="heading-line"></div>
@@ -184,8 +205,9 @@
                 </div>
             </div>
         </section>
+        <script src="js/main.js"></script>
     </footer>
-    <script src="js/main.js"></script>
+
 </body>
 
 </html>
