@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141400908-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141400908-1');
+</script>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Using my drawing and illustration skills I create art pieces by connecting the simple objects in an
-    unexpected way.">
+
+    <meta name="description" content="Gallery of artwoks by Kristian Mensa">
+    <meta name="keywords"
+        content="Mr. Kriss, Kristian Mensa, Creative art, original art Prague,drawing,drawing with real objects,art,creative,real life objects art, connection design,">
+    <meta name="author" content="Kristian Mensa">
+
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
@@ -14,10 +27,10 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-    <title>Gallery - Kristián Mensa</title>
+    <title>Kristán Mensa - Gallery</title>
 </head>
 
-<body>
+<body class="gallery__web">
     <nav class="bar">
         <div class="bar__logo-comp">
             <div class="bar__logo-mask"></div>
@@ -45,111 +58,77 @@
     </nav>
 
     <main>
-        <section class="gallery">
-        <div class="gallery__navigation">
-            <a class="cursor active personal-button">Personal work</a>
-            <a class="cursor series-button">Series</a>
-            <a class="cursor commercial-button">Commercial work</a>
-        </div>
-        <div class="gallery__container">
-            <div id="personal" class="personal">
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                        
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
+        <section class="gallery personal-active">
+            <div class="gallery__navigation">
+                <input class="personal-button" type="radio" name="gallery" value="male" checked onclick="checkButtons()"
+                    id="radio-1"><label class="cursor" for="radio-1">Personal work</label>
+                <input class="series-button" type="radio" name="gallery" value="female" onclick="checkButtons()"
+                    id="radio-2"><label class="cursor" for="radio-2">Series</label>
+                <input class="commercial-button" type="radio" name="gallery" value="other" onclick="checkButtons()"
+                    id="radio-3"><label class="cursor" for="radio-3">Commercial work</label>
+            </div>
+            <div class="gallery__container">
+
+                <div id="personal" class="personal">
                 </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                       
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
+
+                <div id="series" class="series">
                 </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                       
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
-                </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                       
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
-                </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                       
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
-                </div>
-                <div class="personal__box cursor image-lightbox-open">
-                    <div class="personal__box__image">
-                       
-                    </div>
-                    <h2 class="personal__box__title">Penguin</h2>
+
+                <div id="commercial" class="commercial">
                 </div>
 
             </div>
-            <div class="series" id="series">
-            </div>
-
-            <div id="commercial" class="commercial">
-                    <div class="commercial__box">
-                            <div class="series__box__image cursor image-lightbox-open">
-                                <div class="series__box__image__frame">
-                                    
-                                </div>
-                            </div>
-        
-                            <div class="series__box__text">
-                                <h2 class="series__box__title">Plastic Ocean</h2>
-                                <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
-                                <button class="button-primary series__box__button cursor">View site</button>
-        
-                            </div>
-        
-                        </div>
-        
-                        <div class="commercial__box">
-                                <div class="series__box__image cursor image-lightbox-open">
-                                    <div class="series__box__image__frame">
-                                        <img src="img/gallery/1.png" alt="Penguin">
-                                    </div>
-                                </div>
-            
-                                <div class="series__box__text">
-                                    <h2 class="series__box__title">Emoji Zoo</h2>
-                                    <p class="series__box__description">Penguin is a dick because he is a bird but he can't fly</p>
-                                    <button class="button-primary series__box__button cursor">View site</button>
-            
-                                </div>
-            
-                            </div>
-
-                            
-
-
-            </div>
-        </div>
-    </section>
+        </section>
     </main>
-    
-    <template class="seriesTemplate"><div class="series__box">
+
+    <template class="seriesTemplate">
+        <a onclick="openSerie(this)" class="series__box">
             <div class="series__box__image cursor image-lightbox-open">
                 <div class="series__box__image__frame">
-                    
+                    <img class="series__box__src" src="" alt="">
                 </div>
             </div>
 
             <div class="series__box__text">
                 <h2 class="series__box__title"></h2>
                 <p class="series__box__description"></p>
-                <button class="button-primary series__box__button cursor">View serie</button>
+                <button class="button-primary series__box__button cursor">View more</button>
+
+            </div>
+        </a>
+
+    </template>
+
+
+    <template class="commercialTemplate">
+        <div onclick="openLightbox(this)" class="commercial__box">
+            <div class="series__box__image cursor image-lightbox-open">
+                <div class="series__box__image__frame">
+                    <img class="commercial__box__src series__box__src" src="" alt="">
+                </div>
+            </div>
+
+            <div class="series__box__text">
+                <h2 class="commercial__box__title"></h2>
+                <p class="series__box__description"></p>
+                <p class="commercial__box__number"></p>
+                <button class="button-primary series__box__button cursor">View more</button>
 
             </div>
         </div>
-        
+
+    </template>
+
+    <template class="personalTemplate">
+        <div onclick="openLightbox(this)" class="personal__box cursor image-lightbox-open" alt="3">
+            <div class="personal__box__image">
+                <img class="personal__box__src" src="img/gallery/1.png" alt="Penguin">
+            </div>
+            <h2 class="personal__box__title">Penguin</h2>
+            <h2 class="personal__box__number"></h2>
+            </a>
+
     </template>
 
     <div id="myModal" class="lightbox">
@@ -175,7 +154,7 @@
         </div>
 
         <div class="lightbox-image-box">
-            <div class="lightbox_image">
+            <div class="lightbox_image"><img src="" alt="">
             </div>
         </div>
 
@@ -194,7 +173,7 @@
     <script src="js/main.js"></script>
 
     <script>
-      
+
     </script>
 </body>
 
