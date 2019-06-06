@@ -1,0 +1,113 @@
+.shop-item-image {
+ padding-top: 12rem;
+ display: grid;
+ grid-template-columns: 70% 30%;
+ grid-column-gap: -100px;
+& img{
+    width: 70%;
+    margin-left: 15%;
+    
+}
+&__content {
+
+    & h3 {
+        font-size: 3rem;
+    }
+    & h3 span {
+        font-size: 2.4rem;
+        font-weight: 500;
+        color:#c7c7c7; 
+    }
+    & p {
+        margin-top: 30%;
+        font-weight: 800;
+    }
+    
+}
+}
+.shop-quantityCounter {
+    position:relative;
+    line-height: 2;
+    & > * {
+        display: inline-block;
+    }
+    & img {
+        width: 18px;
+        margin-left: 0;
+        cursor: pointer;
+    }
+    & p {
+        margin-top: 0;
+        margin: 1rem;
+        margin-bottom: 7rem;
+    }
+}
+.shop-item-image__button {
+    
+    background-color: $color-primary;
+    color: white;
+    cursor: pointer;
+    font-family: $font-secondary;
+    border-radius: 3px;
+    font-size: 2rem;
+    width: 100%;
+    padding: 8px 35px;
+    transition: all .3s ease-in;
+}
+.shop-item-image__button :hover {
+    transform: scale(1.15);
+}
+.shop-item-image-description {
+    margin-left: 11%;
+    margin-top: 5rem;
+    width: 50%;
+    & p {
+        font-weight: 500;
+    }
+    & > * {
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: $bp-large) {
+    .shop-item-image {
+        grid-template-columns: 100%;
+        padding-top: 8rem;
+        & > img {
+            width: 100%;
+            margin-left: 0;
+           margin: 0 auto;
+            
+        }
+        &__content {
+            margin-left: 3rem;
+            margin-top: 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr ;
+            justify-content: space-between;
+            text-align:left;
+            padding-right: 3rem;
+            & p {
+                margin-top: 0;
+            }
+            & h3:nth-of-type(2) {
+                text-align: right;
+            }
+            & div {
+                text-align: right;
+            }
+        }
+    }
+    .shop-item-image-description {
+        width: 80%;
+        margin-left: 3rem;
+        
+    }
+    .shop-item-image__button {
+        width: 100%;
+        margin-top: -4rem;
+        grid-row: 3;
+        grid-column: 2;
+    }
+}

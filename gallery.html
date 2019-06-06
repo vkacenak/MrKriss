@@ -1,60 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="css/style.css">
-       
-        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
-        
-        <title></title>
-    </head>
-    <body>
-        <nav class="bar">            
-            <div class="bar__logo-comp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="description" content="This is gallery of artist Kristian Mensa">
+    <meta name="keywords" content="drawing,drawing with real objects,art,creative,">
+    <meta name="author" content="Kristian Mensa">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+    <title>Gallery</title>
+</head>
+
+<body class="gallery__web">
+    <nav class="bar">
+        <div class="bar__logo-comp">
             <div class="bar__logo-mask"></div>
-            <a href="index.html"><img src="img/logo-2.png" alt="" class="bar__logo-big"></a>
+            <a href="index.html"><img src="img/logo.png" alt="" class="bar__logo-big"></a>
             <a href="index.html"><img src="img/logo-1.png" alt="" class="bar__logo-small"></a>
         </div>
-                <div class="bar__burger">
-                        <span class="bar__burger-1"></span>
-                        <span class="bar__burger-2"></span>
-                        <span class="bar__burger-3"></span>
-                      </div>
-            <div class="bar__social">
-                <img src="img/ig-icon.png" alt="">
-                <img src="img/dribble-icon.png" alt="">
-                <img src="img/fb-icon.png" class="bar__social-fb" alt="">                
+        <div class="bar__burger">
+            <span class="bar__burger-1"></span>
+            <span class="bar__burger-2"></span>
+            <span class="bar__burger-3"></span>
+        </div>
+        <div class="bar__social">
+            <img src="img/ig-icon.png" alt="">
+            <img src="img/dribble-icon.png" alt="">
+            <img src="img/fb-icon.png" class="bar__social-fb" alt="">
+        </div>
+        <div class="bar__content">
+            <a href="#">Home</a>
+            <a href="#">News</a>
+            <a href="#">Gallery</a>
+            <a href="#">Shop</a>
+            <a href="#">Dance</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="gallery personal-active">
+            <div class="gallery__navigation">
+                <input class="personal-button" type="radio" name="gallery" value="male" checked onclick="checkButtons()"
+                    id="radio-1"><label class="cursor" for="radio-1">Personal work</label>
+                <input class="series-button" type="radio" name="gallery" value="female" onclick="checkButtons()"
+                    id="radio-2"><label class="cursor" for="radio-2">Series</label>
+                <input class="commercial-button" type="radio" name="gallery" value="other" onclick="checkButtons()"
+                    id="radio-3"><label class="cursor" for="radio-3">Commercial work</label>
             </div>
-            <div class="bar__content">
-                    <a href="#">Home</a>
-                    <a href="#">News</a>
-                    <a href="#">Gallery</a>
-                    <a href="#">Shop</a>
-                    <a href="#">Dance</a>
-                    <a href="#">Contact</a>
+            <div class="gallery__container">
+
+                <div id="personal" class="personal">
+                </div>
+
+                <div id="series" class="series">
+                </div>
+
+                <div id="commercial" class="commercial">
+                </div>
+
             </div>
-        </nav>
-        
-       <main class="gallery">
-               <div class="container">
-                   
-                      <img class="gallery__image" src="img/gallery/1.png" alt="">
-                      <img class="gallery__image" src=img/gallery/2.png alt="">                 
-                      <img class="gallery__image" src=img/gallery/3.png alt="">
-                      <img class="gallery__image" src=img/gallery/4.png alt="">                 
-                      <img class="gallery__image" src=img/gallery/5.png alt="">                  
-                      <img class="gallery__image" src=img/gallery/6.png alt="">
-                    
-                  </div>
-       </main>
-        <footer class="footer">
-         
-        </footer>
-        <script src="js/main.js"></script>
-    </body>
+        </section>
+    </main>
+
+    <template class="seriesTemplate">
+        <a onclick="openSerie(this)" class="series__box">
+            <div class="series__box__image cursor image-lightbox-open">
+                <div class="series__box__image__frame">
+                    <img class="series__box__src" src="" alt="">
+                </div>
+            </div>
+
+            <div class="series__box__text">
+                <h2 class="series__box__title"></h2>
+                <p class="series__box__description"></p>
+                <button class="button-primary series__box__button cursor">View more</button>
+
+            </div>
+        </a>
+
+    </template>
+
+
+    <template class="commercialTemplate">
+        <div onclick="openLightbox(this)" class="commercial__box">
+            <div class="series__box__image cursor image-lightbox-open">
+                <div class="series__box__image__frame">
+                    <img class="commercial__box__src series__box__src" src="" alt="">
+                </div>
+            </div>
+
+            <div class="series__box__text">
+                <h2 class="commercial__box__title"></h2>
+                <p class="series__box__description"></p>
+                <p class="commercial__box__number"></p>
+                <button class="button-primary series__box__button cursor">View more</button>
+
+            </div>
+        </div>
+
+    </template>
+
+    <template class="personalTemplate">
+        <div onclick="openLightbox(this)" class="personal__box cursor image-lightbox-open" alt="3">
+            <div class="personal__box__image">
+                <img class="personal__box__src" src="img/gallery/1.png" alt="Penguin">
+            </div>
+            <h2 class="personal__box__title">Penguin</h2>
+            <h2 class="personal__box__number"></h2>
+            </a>
+
+    </template>
+
+    <div id="myModal" class="lightbox">
+        <div onclick="toggleFullscreen()" class="full-screen-box cursor">
+            <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
+        </div>
+
+        <div onclick="closeModal()" class="close-box cursor">
+            <span class="close"></span>
+        </div>
+
+        <div class="prev-box">
+            <div onclick="minusSlides()" class="arrow">
+                <div class="arrow-top arrow-left-top"></div>
+                <div class="arrow-bottom arrow-left-bottom"></div>
+            </div>
+        </div>
+        <div class="next-box">
+            <div onclick="plusSlides()" class="arrow">
+                <div class="arrow-top arrow-right-top"></div>
+                <div class="arrow-bottom arrow-right-bottom"></div>
+            </div>
+        </div>
+
+        <div class="lightbox-image-box">
+            <div class="lightbox_image"><img src="" alt="">
+            </div>
+        </div>
+
+        <div class="lightbox_text">
+            <h1 class="lightbox_text_title"></h1>
+            <h2 class="lightbox_text_subtitle"></h2>
+            <p class="lightbox_text_description"></p>
+            <p class="lightbox_text_number"></p>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+
+    </footer>
+    <script src="js/main.js"></script>
+
+    <script>
+
+    </script>
+</body>
+
 </html>

@@ -1,0 +1,188 @@
+.footer {
+    padding-left: 8.6rem;
+    background-color: #5c5c5c;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+
+    
+    &__stuff {
+        grid-column: 1;
+        grid-row:1;
+        color: white;
+        margin-left: 11rem;
+        margin-top: 8rem;
+    }
+
+    & h2 {
+        color: white;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+    }
+
+    &__2-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5rem;
+        margin-bottom: 7rem;
+
+    }
+
+    &__white-hack {
+        grid-row: 1;
+        grid-column: 1;
+        height: 7rem;
+        width: 100%;
+        background-color: white;
+    }
+
+    & .heading-line {
+        margin-bottom: 7rem;
+    }
+
+    & p {
+        max-width: 40rem;
+    }
+
+    & ul {
+        list-style-type: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 1rem 3rem 1rem 0;
+    }
+
+
+
+    &__social {
+        align-self: right;
+
+        & img {
+            height: 3rem;
+            margin-right: 1.5rem;
+            margin-top: 1rem;
+            &:hover{transform: translateY(-0.5rem);
+            transition-duration: 0.2s;}
+        }
+    }
+
+    &__form {
+        background-color: $color-primary;
+        grid-column: 2;
+        grid-row: -1;
+
+        & h2 {
+            margin: 9rem 7rem 4rem 7rem;
+            font-size: 4rem;
+        }
+
+        & form {
+            display: block;
+
+        }
+        & input,
+        & textarea {
+            display: block;
+            width: 80%;
+            margin: 0.2rem auto;
+            margin-bottom:1.5rem;
+            border: none;
+            padding: 1rem 1rem;
+            color: white;
+            font-weight: 500;
+            background-color: rgb(255, 216, 147);
+            @media only screen and (max-width: $bp-large) {
+                width:100%;
+            }
+
+        }
+
+        ::placeholder {
+            color: white;
+        }
+
+        & textarea[name=message] {
+            height: 10rem;
+            color: white;
+            resize: none;
+
+        }
+
+        & input[type=submit] {
+            background-color: white;
+            color: black;
+            font-weight: 700;
+            width: 9rem;
+            padding: 1rem;
+            float: right;
+            margin-right: 5rem;
+            @media only screen and (max-width: $bp-large) {
+                margin-right:0;
+            }
+        }
+        & label {
+            color: white;
+            display:block;
+            width:80%;
+            margin: 0 auto;
+            font-size:1.3rem;
+    
+        }
+    }
+
+  
+  
+    @media only screen and (max-width: $bp-large) {
+    
+        display:block;
+        &__form{
+            display:block;
+          
+        }
+        &__stuff{
+            margin: 5rem 3rem;
+            grid-row:2;
+ 
+        }
+        &__2-col{
+            grid-template-columns: 1fr;
+          
+        }
+        &__social{
+            text-align: center;
+            & h2{text-align: left;}
+            & img{margin: 1rem 4rem 3rem 4rem;
+        }
+        }
+        &__white-hack{display:none;}
+        &__form{
+            display:flex;
+            grid-row:1;
+            grid-column: -1;
+           
+            & h2{
+               font-size:4rem;
+            }
+            & form{width:60%;
+            margin:5rem;}
+            
+ 
+        }
+     }
+     
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 0;
+        &__form{
+            display:block;
+            padding:4rem 0 5rem 0;
+            & form{margin: 4rem auto;}
+            & h2{
+                font-size:3.5rem;
+                display:block;
+                width:60%;
+                margin:2rem auto;}
+        }
+       
+
+    }
+}

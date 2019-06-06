@@ -1,5 +1,7 @@
 // COLOR VARIABLES
 $color-primary: #ffbd55;
+$color-secondary: #f3c781;
+
 $color-grey: #707070;
 $color-black: #2F2F31;
 // $color-secondary: #B28451;
@@ -15,6 +17,7 @@ $bp-largest: 85em; // 1200px
 $bp-large: 65em; // 1000px
 $bp-medium: 50em; // 800px;
 $bp-small: 37.5em; // 600px;
+
 
 *,
 *::before,
@@ -37,7 +40,8 @@ html {
     }
 
 
-  
+
+
 
 }
 
@@ -54,8 +58,8 @@ main {
     padding-left: 8.6rem;
 
     @media only screen and (max-width: $bp-small) {
-       padding:0;
-      }
+        padding: 0;
+    }
 }
 
 a {
@@ -63,4 +67,22 @@ a {
     color: black;
 
 
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 80%;
+  
 }

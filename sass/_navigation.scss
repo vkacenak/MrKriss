@@ -5,31 +5,34 @@
     left: 0;
     width: 8.6rem;
     height: 100vh;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.09), 0 3px 6px rgba(0, 0, 0, 0.15);
     z-index: 100;
-    transition: width 0.3s;
+    transition: all 0.3s;
 
     @media only screen and (max-width: $bp-small) {
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, 0);
         box-shadow: none;
         width: 100%;
         height: 7rem;
+        padding-bottom: 2rem;
+
     }
+
 
 
     &__logo-small {
         position: absolute;
-        width: 4.4rem;
+        width: 3.5rem;
         display: block;
         margin: 4rem 2.1rem;
         z-index: 3;
 
         @media only screen and (max-width: $bp-small) {
             margin: 2rem auto;
-            width:4rem;
-            top: 1rem;
-            
+            width: 4rem;
+            top: 0rem;
+
         }
 
 
@@ -53,9 +56,9 @@
         transition: all 0.5s;
 
         @media only screen and (max-width: $bp-small) {
-            opacity:0;
-            top:-8rem;
-            left:0;
+            opacity: 0;
+            top: -8rem;
+            left: 0;
             transform: translateX(-4rem);
         }
     }
@@ -87,7 +90,7 @@
             font-size: 2rem;
             letter-spacing: 0;
             font-weight: 600;
-           
+
         }
 
     }
@@ -98,14 +101,14 @@
         top: 40%;
         left: 2.2rem;
         display: block;
-        width: 1.3em;
+        width: 1.2em;
         height: 2em;
         margin: 0 auto;
         cursor: pointer;
         z-index: 5;
 
         @media only screen and (max-width: $bp-small) {
-            top: 3.5rem;
+            top: 3rem;
             left: 3.5rem;
             width: 3rem;
             height: 2rem;
@@ -147,7 +150,7 @@
             }
 
         }
-       
+
 
         &.bar__burger-open .bar__burger-2 {
             opacity: 0;
@@ -160,18 +163,18 @@
                 transform: translateY(0em) translateX(0) rotate(45deg) scaleX(1);
             }
         }
-        
+
     }
 
     &__social {
         position: absolute;
         left: 3rem;
         bottom: 5%;
-        
+
 
         & img {
             display: block;
-            height: 2.5rem;
+            height: 2rem;
             transition: all 0.5s;
             margin: 3rem 0;
         }
@@ -179,19 +182,39 @@
         &-fb {
             padding-left: 0.5rem;
         }
+
         @media only screen and (max-width: $bp-small) {
-          left:-3rem;
+            left: -3rem;
         }
 
-      
+
     }
+
+      //SCROLLED STATE OF MENU
+
+      &.scrolled {
+        background-color: rgba(255, 255, 255, 1);
+
+        & .bar__logo-small {
+            opacity: 0;
+        }
+
+        & .bar__logo-big {
+            top: 2rem;
+            opacity:1;
+        }
+    }
+
 
     // OPEN STATE OF MENU
 
     //PHONE
     @media only screen and (max-width: $bp-small) {
+
+      
+
         &-open {
-            height:100%;
+            height: 100%;
 
 
             & .bar__content {
@@ -202,41 +225,43 @@
                 left: 0;
                 opacity: 1;
                 padding: 3.5rem;
-                padding-top:15rem;
-                & a{
-                    padding:0.4rem;
-                font-size:2.8rem;
-                }  
+                padding-top: 15rem;
+
+                & a {
+                    padding: 0.4rem;
+                    font-size: 2.8rem;
+                }
             }
 
             & .bar__social {
                 text-align: center;
                 z-index: 3;
-                width:100%;
+                width: 100%;
                 bottom: 5%;
-                display:block;
-                left:0;
-                
+                display: block;
+                left: 0;
+
                 & img {
                     display: inline-block;
                     margin: 3rem;
-                    height:3.2rem;
-                    
+                    height: 3.2rem;
+
                 }
             }
 
             & .bar__logo-big {
-                opacity:1;
-                z-index:3;
-              top:2.8rem;
-              
-            }
-            & .bar__logo-mask, & .bar__logo-small{
-                display:none;
-                
-            }
+                opacity: 1;
+                z-index: 3;
+                top: 2.8rem;
 
 
+            }
+
+            & .bar__logo-mask,
+            & .bar__logo-small {
+                display: none;
+
+            }
 
         }
     }
@@ -246,7 +271,6 @@
         &-open {
             width: 33rem;
 
-
             & .bar__social {
                 left: 50%;
                 transform: translateX(-50%);
@@ -254,7 +278,7 @@
                 & img {
                     display: inline-block;
                     margin: 1rem;
-                    height: 3.5rem;
+                    height: 2.5rem;
                 }
             }
 
@@ -263,20 +287,13 @@
                 left: 9rem;
             }
 
-
             & .bar__logo-big {
                 left: 2.7rem;
-               
-
             }
 
             & .bar__logo-mask {
                 left: -5rem;
                 width: 10rem;
-
-
-
-
             }
 
             & .bar__logo-comp {

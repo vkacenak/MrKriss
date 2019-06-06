@@ -20,6 +20,7 @@ h2{
     height:0.5rem;
 }
 .button-primary{
+    cursor:pointer;
     background-color: $color-primary;
     font-weight: 500;
     color:white;
@@ -29,8 +30,15 @@ h2{
     border-radius: 0.4rem;
     margin-right: 4rem;
     border: 2px solid $color-primary;
+    &:hover{
+        transition-duration:0.2s;
+        background-color: white;
+        color: $color-primary;
+    }
 }
+
 .button-secondary{
+    cursor:pointer;
     background-color: white;
     font-weight: 500;
     color: $color-primary;
@@ -38,6 +46,11 @@ h2{
     border: 2px solid $color-primary;
     font-size:1.6rem;
     border-radius: 0.4rem;
+    &:hover{
+        transition-duration:0.2s;
+        background-color: $color-primary;
+        color: white;
+    }
 }
 @media only screen and (max-width: $bp-small) {
     .button-secondary, .button-primary{

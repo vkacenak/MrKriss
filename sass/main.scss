@@ -2,11 +2,16 @@
 @import "typography";
 @import "navigation";
 @import "landing";
+@import "news";
+@import "shop";
+@import "shop_item";
+@import "footer";
+@import "dance";
 
 
 .gallery{
-  
-   
+     
+
     &__image {
         width: 45rem !important;
         height: auto !important;
