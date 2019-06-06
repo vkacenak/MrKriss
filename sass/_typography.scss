@@ -20,6 +20,7 @@ h2{
     height:0.5rem;
 }
 .button-primary{
+    cursor:pointer;
     background-color: $color-primary;
     font-weight: 500;
     color:white;
@@ -37,6 +38,7 @@ h2{
 }
 
 .button-secondary{
+    cursor:pointer;
     background-color: white;
     font-weight: 500;
     color: $color-primary;

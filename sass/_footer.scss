@@ -5,16 +5,10 @@
     display: grid;
     grid-template-columns: 5fr 3fr;
 
-    @media only screen and (max-width: $bp-small) {
-        padding: 0;
-    }
- 
     
-
-
     &__stuff {
         grid-column: 1;
-        grid-row: -1;
+        grid-row:1;
         color: white;
         margin-left: 11rem;
         margin-top: 8rem;
@@ -66,6 +60,8 @@
             height: 3rem;
             margin-right: 1.5rem;
             margin-top: 1rem;
+            &:hover{transform: translateY(-0.5rem);
+            transition-duration: 0.2s;}
         }
     }
 
@@ -134,20 +130,35 @@
     }
 
   
-
-
+  
     @media only screen and (max-width: $bp-large) {
-        grid-template-columns: 1fr;
+    
+        display:block;
+        &__form{
+            display:block;
+          
+        }
         &__stuff{
+            margin: 5rem 3rem;
             grid-row:2;
-            grid-column:-1;
  
+        }
+        &__2-col{
+            grid-template-columns: 1fr;
+          
+        }
+        &__social{
+            text-align: center;
+            & h2{text-align: left;}
+            & img{margin: 1rem 4rem 3rem 4rem;
+        }
         }
         &__white-hack{display:none;}
         &__form{
             display:flex;
             grid-row:1;
             grid-column: -1;
+           
             & h2{
                font-size:4rem;
             }
@@ -158,17 +169,20 @@
         }
      }
      
-    @media only screen and (max-width: $bp-large) {
+
+    @media only screen and (max-width: $bp-small) {
+        padding: 0;
         &__form{
             display:block;
-          
+            padding:4rem 0 5rem 0;
+            & form{margin: 4rem auto;}
+            & h2{
+                font-size:3.5rem;
+                display:block;
+                width:60%;
+                margin:2rem auto;}
         }
-        &__stuff{
-            margin: 5rem 3rem;
-        }
-        &__2-col{
-            grid-template-columns: 1fr;
-          
-        }
+       
+
     }
 }
