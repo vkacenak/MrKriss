@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <meta name="description" content="This is gallery of artist Kristian Mensa">
+    <meta name="keywords" content="drawing,drawing with real objects,art,creative,">
+    <meta name="author" content="Kristian Mensa">
+
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700,800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
@@ -13,10 +17,10 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-    <title></title>
+    <title>Gallery</title>
 </head>
 
-<body>
+<body class="gallery__web">
     <nav class="bar">
         <div class="bar__logo-comp">
             <div class="bar__logo-mask"></div>
@@ -69,10 +73,10 @@
     </main>
 
     <template class="seriesTemplate">
-        <a onclick="openSerie(this)" href="serie.html" class="series__box">
+        <a onclick="openSerie(this)" class="series__box">
             <div class="series__box__image cursor image-lightbox-open">
                 <div class="series__box__image__frame">
-                    <img class="series__box__src" src="img.jpg" alt="">
+                    <img class="series__box__src" src="" alt="">
                 </div>
             </div>
 
@@ -88,33 +92,33 @@
 
 
     <template class="commercialTemplate">
-            <div onclick="openLightbox(this)" class="commercial__box">
-                <div class="series__box__image cursor image-lightbox-open">
-                    <div class="series__box__image__frame">
-                        <img class="series__box__src" src="img.jpg" alt="">
-                    </div>
-                </div>
-    
-                <div class="series__box__text">
-                    <h2 class="series__box__title"></h2>
-                    <p class="series__box__description"></p>
-                    <p class="commercial__box__number"></p>
-                    <button class="button-primary series__box__button cursor">View more</button>
-    
+        <div onclick="openLightbox(this)" class="commercial__box">
+            <div class="series__box__image cursor image-lightbox-open">
+                <div class="series__box__image__frame">
+                    <img class="commercial__box__src series__box__src" src="" alt="">
                 </div>
             </div>
-    
-        </template>
+
+            <div class="series__box__text">
+                <h2 class="commercial__box__title"></h2>
+                <p class="series__box__description"></p>
+                <p class="commercial__box__number"></p>
+                <button class="button-primary series__box__button cursor">View more</button>
+
+            </div>
+        </div>
+
+    </template>
 
     <template class="personalTemplate">
-            <div onclick="openLightbox(this)"  class="personal__box cursor image-lightbox-open" alt="3">
-                <div class="personal__box__image">
-                    <img class="personal__box__src" src="img/gallery/1.png" alt="Penguin">
-                </div>
-                <h2 class="personal__box__title">Penguin</h2>
-                <h2 class="personal__box__number"></h2>
+        <div onclick="openLightbox(this)" class="personal__box cursor image-lightbox-open" alt="3">
+            <div class="personal__box__image">
+                <img class="personal__box__src" src="img/gallery/1.png" alt="Penguin">
+            </div>
+            <h2 class="personal__box__title">Penguin</h2>
+            <h2 class="personal__box__number"></h2>
             </a>
-    
+
     </template>
 
     <div id="myModal" class="lightbox">
@@ -140,7 +144,7 @@
         </div>
 
         <div class="lightbox-image-box">
-            <div class="lightbox_image"><img src="img.png" alt="">
+            <div class="lightbox_image"><img src="" alt="">
             </div>
         </div>
 

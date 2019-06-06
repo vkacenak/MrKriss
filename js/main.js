@@ -10,7 +10,6 @@ burger.addEventListener('click', function () {
 
 });
 
-
 // SCROLL STUFF 
 function ScrollPlease(x) {
     if (x.matches) { // If media query matches
@@ -43,6 +42,8 @@ function FetchLocationTest() {
 
 function JSONFetch(link, type) {
 
+    console.log(type);
+
     var request = new XMLHttpRequest();
     request.open('GET', link, true);
 
@@ -61,6 +62,11 @@ function JSONFetch(link, type) {
                 case "seriestype":
                     main.classList.remove("seriestype");
                     createSeries(data);
+
+                    break; /*  */
+
+                case "seriesFull":
+                    createSeriesFull(data);
 
                     break;
 
@@ -83,19 +89,29 @@ function JSONFetch(link, type) {
     request.send();
 }
 
-/// GALLERY
+//////////// GALLERY /////////////
+
+
+// Variables 
 var c = 0;
 var p = 0;
+var s = 0;
 var modal = document.getElementById("myModal");
+console.log(modal);
+
 var image = 0;
 var title = 0;
 var number = 0;
 var numberE = 0;
 var personalData = [];
 var commercialData = [];
+var seriesData = [];
 var actualNumber = 0;
 var haha = 0;
+var articleId = 0;
 
+
+// Create series from fetched data 
 function createSeries(data) {
 
     if (!document.querySelector('.series').classList.contains('series-fetched')) {
@@ -105,6 +121,7 @@ function createSeries(data) {
             const clone = template.cloneNode(true);
             clone.querySelector('.series__box__src').src = data[i].cover_image.guid;
             clone.querySelector('.series__box__title').innerHTML = data[i].title.rendered;
+            clone.querySelector('.series__box').id = data[i].id;
             document.querySelector('.series').appendChild(clone);
             document.querySelector('.series').classList.add('series-fetched');
         }
@@ -113,6 +130,9 @@ function createSeries(data) {
 
 
 }
+
+// Create pieces from fetched data
+// Pieces data includes personal and commercial work, as they have the same structure
 
 function createPieces(data) {
     if (document.querySelector(".commercial-button").checked) {
@@ -126,8 +146,8 @@ function createPieces(data) {
                     commercialData[c] = data[i];
                     c++;
                     console.log(c);
-                    clone.querySelector('.series__box__src').src = data[i].image.guid;
-                    clone.querySelector('.series__box__title').innerHTML = data[i].title.rendered;
+                    clone.querySelector('.commercial__box__src').src = data[i].image.guid;
+                    clone.querySelector('.commercial__box__title').innerHTML = data[i].title.rendered;
                     clone.querySelector('.commercial__box').id = data[i].id;
                     clone.querySelector('.commercial__box__number').innerHTML = c;
 
@@ -171,10 +191,13 @@ function createPieces(data) {
 }
 
 
+
+// If you are located on the gallery page run the function
+if (document.querySelector("body").classList.contains('gallery__web')) {
     checkButtons();
+}
 
-
-
+// Check on what section you are currently
 function checkButtons() {
     document.querySelector(".personal").classList.remove('personal-active');
     document.querySelector(".series").classList.remove('series-active');
@@ -203,7 +226,7 @@ var n = 1;
 var x = 0;
 
 
-
+// Full-screen mode on button
 function toggleFullscreen(elem) {
     elem = elem || document.documentElement;
     if (!document.fullscreenElement) {
@@ -219,10 +242,20 @@ function toggleFullscreen(elem) {
     }
 }
 
+// Open light-box
+function openLightbox(e) {
+    console.log(e);
+    modal.classList.add('modal-open');
+    slideIndex = e.id;
+    showSlides(slideIndex);
+}
+
+// Close light-box
 function closeModal() {
     modal.classList.remove('modal-open');
 }
 
+// Light-box arrows - show next or previous image
 function minusSlides() {
     actualNumber = number;
 
@@ -235,12 +268,11 @@ function minusSlides() {
     }
     /*     console.log(personalData[actualNumber].id); */
     console.log(actualNumber);
-    x = ActiveArray[actualNumber].id;
+    IDControler();
     showSlides(x);
 }
 
 function plusSlides() {
-
     actualNumber = number;
     if (actualNumber == ActiveArrayLength) {
         actualNumber = 0;
@@ -250,25 +282,74 @@ function plusSlides() {
     /*     console.log(personalData[actualNumber].id); */
     console.log(actualNumber);
 
-    x = ActiveArray[actualNumber].id;
+    IDControler();
     showSlides(x);
 }
 
-
-function openLightbox(e) {
-
-    console.log(e);
-    modal.classList.add('modal-open');
-    slideIndex = e.id;
-    showSlides(slideIndex);
-
-
+function IDControler(){
+    if (document.querySelector("body").classList.contains('serie__web')) {
+        x = ActiveArray[actualNumber].ID;}
+        if (document.querySelector("body").classList.contains('gallery__web')) {
+            x = ActiveArray[actualNumber].id;}
 }
 
+// Open page with series that you clicked on, by passing id of the element to the link
 function openSerie(e) {
-    console.log(e);
-
+    window.location.replace('serie.html' + '?id=' + e.id, "");
 }
+
+// If you are located on the page with one series run the function
+if (document.querySelector("body").classList.contains('serie__web')) {
+    fillSerie();
+}
+
+// Create series from fetched data
+function fillSerie() {
+    const params = new URLSearchParams(location.search)
+    articleId = params.get('id');
+    console.log(articleId);
+
+    let fetchLink = "http://viktorkacenak.com/MrKriss/wordpress/wp-json/wp/v2/seriestype/" + articleId;
+    JSONFetch(fetchLink, ["seriesFull"]);
+}
+
+
+function createSeriesFull(data) {
+    if (!document.querySelector('.serie').classList.contains('serie-fetched')) {
+        console.log(data);
+        document.querySelector('.serie__heading').innerHTML = data.title.rendered;
+        console.log(data.title.rendered);
+
+        var template = document.querySelector(".serieTemplate").content;
+        for (i = 0; i < data.images.length; i++) {
+
+
+            const clone = template.cloneNode(true);
+            seriesData[s] = data.images[i];
+            s++;
+            clone.querySelector('.serie__box__src').src = data.images[i].guid;
+            clone.querySelector('.serie__box').id = data.images[i].ID;
+            clone.querySelector('.serie__box__number').innerHTML = s;
+            document.querySelector('.serie').appendChild(clone);
+            document.querySelector('.serie').classList.add('commercial-fetched');
+
+
+        }
+
+        /*         var template = document.querySelector(".seriesTemplate").content;
+                for (i = 0; i < data.length; i++) {
+                    const clone = template.cloneNode(true);
+                    clone.querySelector('.series__box__src').src = data[i].cover_image.guid;
+                    clone.querySelector('.series__box__title').innerHTML = data[i].title.rendered;
+                    clone.querySelector('.series__box').id = data[i].id;
+                    document.querySelector('.series').appendChild(clone);
+                    document.querySelector('.serie').classList.add('serie-fetched');
+                } */
+    }
+}
+
+
+
 
 
 /* document.querySelector(".image-lightbox-open").forEach(function (e) {
@@ -282,36 +363,47 @@ function openSerie(e) {
     })
 }) */
 
+// Show elements in light-box by their ID passed to the function
 function showSlides(n) {
-    if (document.querySelector(".commercial-button").checked) {
-        ActiveArrayLength = commercialData.length;
-        ActiveArray = commercialData;
-        image = document.getElementById(n).firstElementChild.firstElementChild.outerHTML;
-        title = document.getElementById(n).firstElementChild.nextElementSibling.firstElementChild.innerHTML;
-        number = document.getElementById(n).firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.nextElementSibling.innerHTML;
-        console.log(number);
-        GalleryLength = c;
+    if (document.querySelector("body").classList.contains('gallery__web')) {
+        if (document.querySelector(".commercial-button").checked) {
+            ActiveArrayLength = commercialData.length;
+            ActiveArray = commercialData;
+            image = document.getElementById(n).querySelector('.commercial__box__src').src;
+            title = document.getElementById(n).querySelector('.commercial__box__title').innerHTML;
+            number = document.getElementById(n).querySelector('.commercial__box__number').innerHTML;
+            GalleryLength = c;
+        }
+        if (document.querySelector(".personal-button").checked) {
+            ActiveArrayLength = personalData.length;
+            ActiveArray = personalData;
+            image = document.getElementById(n).querySelector('.personal__box__src').src;
+            title = document.getElementById(n).querySelector('.personal__box__title').innerHTML;
+            number = document.getElementById(n).querySelector('.personal__box__number').innerHTML;
+            GalleryLength = p;
+        }
     }
-    if (document.querySelector(".series-button").checked) {
+    if (document.querySelector("body").classList.contains('serie__web')) {
 
-    }
-    if (document.querySelector(".personal-button").checked) {
-        ActiveArrayLength = personalData.length;
-        ActiveArray = personalData;
-        image = document.getElementById(n).firstElementChild.firstElementChild.outerHTML;
-        title = document.getElementById(n).firstElementChild.nextElementSibling.innerHTML;
-        number = document.getElementById(n).firstElementChild.nextElementSibling.nextElementSibling.innerHTML;
-        GalleryLength = p;
+            ActiveArrayLength = seriesData.length;
+            ActiveArray = seriesData;   
+            title = document.querySelector('.serie__heading').innerHTML;                    
+            image = document.getElementById(n).querySelector('.serie__box__src').src;
+            console.log(image);
+            number = document.getElementById(n).querySelector('.serie__box__number').innerHTML;
+            console.log(number);
+            GalleryLength = s;
     }
 
     /* var description = document.getElementById(slideIndex).firstElementChild.nextElementSibling
         .firstElementChild
         .nextElementSibling.nextElementSibling.innerHTML; */
+
     fillLightbox();
 }
 
 function fillLightbox() {
-    document.querySelector(".lightbox-image-box").firstElementChild.innerHTML = image;
+    document.querySelector(".lightbox_image img").src = image;
     console.log(title);
     document.querySelector(".lightbox_text_title").innerHTML = title;
     //  document.querySelector(".lightbox_text_description").innerHTML = description;
