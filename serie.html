@@ -2,6 +2,7 @@
 <html lang="en">
 
 
+
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141400908-1"></script>
@@ -12,6 +13,8 @@
 
   gtag('config', 'UA-141400908-1');
 </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -27,35 +30,38 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
+
     <title>Kristán Mensa Gallery - Series</title>
+
 </head>
 
 <body class="serie__web">
-    <nav class="bar">
-        <div class="bar__logo-comp">
-            <div class="bar__logo-mask"></div>
-            <a href="index.html"><img src="img/logo.png" alt="" class="bar__logo-big"></a>
-            <a href="index.html"><img src="img/logo-1.png" alt="" class="bar__logo-small"></a>
-        </div>
-        <div class="bar__burger">
-            <span class="bar__burger-1"></span>
-            <span class="bar__burger-2"></span>
-            <span class="bar__burger-3"></span>
-        </div>
-        <div class="bar__social">
-            <img src="img/ig-icon.png" alt="">
-            <img src="img/dribble-icon.png" alt="">
-            <img src="img/fb-icon.png" class="bar__social-fb" alt="">
-        </div>
-        <div class="bar__content">
-            <a href="#">Home</a>
-            <a href="#">News</a>
-            <a href="#">Gallery</a>
-            <a href="#">Shop</a>
-            <a href="#">Dance</a>
-            <a href="#">Contact</a>
-        </div>
-    </nav>
+        <nav class="bar">
+                <div class="bar__logo-comp">
+                    <div class="bar__logo-mask"></div>
+                    <a href="index.html"><img src="img/logo.png" alt="" class="bar__logo-big"></a>
+                    <a href="index.html"><img src="img/logo-1.png" alt="" class="bar__logo-small"></a>
+                </div>
+                <div class="bar__burger">
+                    <span class="bar__burger-1"></span>
+                    <span class="bar__burger-2"></span>
+                    <span class="bar__burger-3"></span>
+                </div>
+                <div class="bar__social">
+                    <a href="https://www.instagram.com/mr.kriss/"><img src="img/ig-icon.png" alt=""></a>
+                    <a href=""> <img src="img/dribble-icon.png" alt=""></a>
+                    <a href="https://www.facebook.com/worldbykriss/"> <img src="img/fb-icon.png" class="bar__social-fb"
+                            alt=""></a>
+                </div>
+                <div class="bar__content">
+                    <a href="index.html">Home</a>
+                    <a href="news.html">News</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="shop.html">Shop</a>
+                    <a href="dance.html">Dance</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
 
     <main>
         <section class="gallery series-active">
@@ -68,70 +74,109 @@
                 </a>
             </div>
             <div class="gallery__container">
+
                 <h2 class="serie__heading">Serie</h2>
                 <div id="serie" class="serie">
                 </div>
+
             </div>
         </section>
     </main>
 
     <div id="myModal" class="lightbox">
-        <div onclick="toggleFullscreen()" class="full-screen-box cursor">
-            <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
-        </div>
 
-        <div onclick="closeModal()" class="close-box cursor">
-            <span class="close"></span>
-        </div>
-
-        <div class="prev-box">
-            <div onclick="minusSlides()" class="arrow">
-                <div class="arrow-top arrow-left-top"></div>
-                <div class="arrow-bottom arrow-left-bottom"></div>
+            <div onclick="toggleFullscreen()" class="full-screen-box cursor">
+                <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
             </div>
-        </div>
-        <div class="next-box">
-            <div onclick="plusSlides()" class="arrow">
-                <div class="arrow-top arrow-right-top"></div>
-                <div class="arrow-bottom arrow-right-bottom"></div>
+    
+            <div onclick="closeModal()" class="close-box cursor">
+                <span class="close"></span>
             </div>
-        </div>
-
-        <div class="lightbox-image-box">
-            <div class="lightbox_image"><img src="" alt="">
+    
+            <div class="prev-box">
+                <div onclick="minusSlides()" class="arrow">
+                    <div class="arrow-top arrow-left-top"></div>
+                    <div class="arrow-bottom arrow-left-bottom"></div>
+                </div>
             </div>
+            <div class="next-box">
+                <div onclick="plusSlides()" class="arrow">
+                    <div class="arrow-top arrow-right-top"></div>
+                    <div class="arrow-bottom arrow-right-bottom"></div>
+                </div>
+            </div>
+    
+            <div class="lightbox-image-box">
+                <div class="lightbox_image"><img src="" alt="">
+                </div>
+            </div>
+    
+            <div class="lightbox_text">
+                <h1 class="lightbox_text_title"></h1>
+                <p class="lightbox_text_number"></p>
+            </div>
+    
         </div>
 
-        <div class="lightbox_text">
-            <h1 class="lightbox_text_title"></h1>
-            <p class="lightbox_text_number"></p>
-        </div>
 
-    </div>
-
-    <script src="js/main.js"></script>
 
     <template class="serieTemplate">
-        <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open">
-            <div class="serie__box__image">
-                <img class="serie__box__src" src="img/gallery/1.png" alt="Penguin">
+            <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open">
+                <div class="serie__box__image">
+                    <img class="serie__box__src" src="img/gallery/1.png" alt="Penguin">
+                </div>
+                <h2 class="serie__box__number"></h2>
             </div>
-            <h2 class="serie__box__number"></h2>
-        </div>
         </div>
 
-
-
-
+    
 
         <footer class="footer">
+                <section class="footer__form" id="contact">
+                    <h2>Don't be a stranger, <br>just say hello!</h2>
+                    <form>
+                        <label for="Email">Email</label>
+                        <input type="email" name="Email" id="Email" placeholder="PeterParker@gmail.com" required>
+                        <label for="Name">Full Name</label>
+                        <input type="text" name="Name" placeholder="Peter" id="Name" required>
+                        <label for="message">Your message</label>
+                        <textarea placeholder="Hey, listen up..." name="message" id="message" required></textarea>
+        
+                        <input type="submit" value="Submit">
+                    </form>
+                </section>
+                <div class="footer__white-hack"></div>
+                <section class="footer__stuff">
+        
+        
+                    <h2>Contact Stuff</h2>
+                    <div class="heading-line"></div>
+                    <p>Want to collaborate or just ask something? Feel free to get in touch with me. I am always open to
+                        discussing new project, creative ideas or opportunities to be part of your visions.</p>
+                    <div class="footer__2-col">
+                        <div class="footer__contact">
+                            <h2>Contact</h2>
+                            <ul>
+                                <li>Phone: </li>
+                                <li>+420 724 868 656</li>
+                                <li>Email: </li>
+                                <li>kristian.mensa@gmail.com</li>
+                            </ul>
+                        </div>
+                        <div class="footer__social">
+                            <h2>Social</h2>
+                            <a href="https://www.instagram.com/mr.kriss/"><img src="img/ig-icon.png" alt=""></a>
+                            <a href=""> <img src="img/dribble-icon.png" alt=""></a>
+                            <a href="https://www.facebook.com/worldbykriss/"> <img src="img/fb-icon.png" class="bar__social-fb"
+                                    alt=""></a>
+                        </div>
+                    </div>
+                </section>
+                <script src="js/main.js"></script>
+            </footer>
 
-        </footer>
+   
 
-
-        <script>
-
-        </script>
 </body>
 
 </html>
