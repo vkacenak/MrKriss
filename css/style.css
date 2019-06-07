@@ -1476,12 +1476,13 @@ h2 {
     margin: 2rem auto;
   }
 }
-
-.dance__video {
+.dance__video  {
+  width: 100%;
+}
+.dance__video video{
   min-width: 100%;
   min-height: 100%;
 }
-
 .dance__text {
   font-size: 2rem;
   width: 50rem;
@@ -1489,6 +1490,9 @@ h2 {
   font-weight: 700;
   position: absolute;
 }
+
+
+
 
 .dance__info {
   position: relative;
@@ -1503,6 +1507,27 @@ h2 {
 .dance__info p {
   top: 20%;
   left: 10%;
+}
+@media only screen and (max-width: 50em) { 
+  .dance__video video {
+    
+    max-width: 100%;
+    object-fit: contain;
+  }
+  .dance__video {
+    margin-top: 63px;
+  }
+  .dance__text { 
+    width: 80%;
+  }
+  .dance__info {
+    background-image: none;
+    height: 150px;
+  }
+  .dance__info p {
+    top: 3rem;
+    left: 4rem;
+  }
 }
 
 .dance__first {
