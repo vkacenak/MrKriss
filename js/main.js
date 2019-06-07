@@ -244,20 +244,20 @@ if (document.querySelector("body").classList.contains('gallery__web')) {
 
 // Check on what section you are currently
 function checkButtons() {
-    document.querySelector(".personal").classList.remove('personal-active');
-    document.querySelector(".series").classList.remove('series-active');
-    document.querySelector(".commercial").classList.remove('commercial-active');
+    document.querySelector(".personal").style.display = "none";
+    document.querySelector(".series").style.display = "none";
+    document.querySelector(".commercial").style.display = "none";
 
     if (document.querySelector(".personal-button").checked) {
-        document.querySelector(".personal").classList.add('personal-active');
+        document.querySelector(".personal").style.display = "block";
         main.classList.add("piecestype");
     }
     if (document.querySelector(".series-button").checked) {
-        document.querySelector(".series").classList.add('series-active');
+        document.querySelector(".series").style.display = "block";
         main.classList.add("seriestype");
     }
     if (document.querySelector(".commercial-button").checked) {
-        document.querySelector(".commercial").classList.add('commercial-active');
+        document.querySelector(".commercial").style.display = "block";
         main.classList.add("piecestype");
     }
     FetchLocationTest();

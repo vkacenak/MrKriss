@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141400908-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-141400908-1');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="description" content="This is gallery of artist Kristian Mensa">
+    <meta name="description" content="Using my drawing and illustration skills I create art pieces by connecting the simple objects in an
+    unexpected way.">
     <meta name="keywords" content="drawing,drawing with real objects,art,creative,">
     <meta name="author" content="Kristian Mensa">
 
@@ -27,7 +18,7 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-    <title>Gallery</title>
+    <title>Kristián Mensa - Gallery</title>
 </head>
 
 <body class="gallery__web">
@@ -43,41 +34,20 @@
             <span class="bar__burger-3"></span>
         </div>
         <div class="bar__social">
-            <img src="img/ig-icon.png" alt="">
-            <img src="img/dribble-icon.png" alt="">
-            <img src="img/fb-icon.png" class="bar__social-fb" alt="">
+            <a href="https://www.instagram.com/mr.kriss/"><img src="img/ig-icon.png" alt=""></a>
+            <a href=""> <img src="img/dribble-icon.png" alt=""></a>
+            <a href="https://www.facebook.com/worldbykriss/"> <img src="img/fb-icon.png" class="bar__social-fb"
+                    alt=""></a>
         </div>
         <div class="bar__content">
-            <a href="#">Home</a>
-            <a href="#">News</a>
-            <a href="#">Gallery</a>
-            <a href="#">Shop</a>
-            <a href="#">Dance</a>
-            <a href="#">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="news.html">News</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="shop.html">Shop</a>
+            <a href="dance.html">Dance</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
-
-    <main>
-        <section class="gallery personal-active">
-            <div class="gallery__navigation">
-                <input class="personal-button" type="radio" name="gallery" value="male" checked onclick="checkButtons()"
-                    id="radio-1"><label class="cursor" for="radio-1">Personal work</label>
-                <input class="series-button" type="radio" name="gallery" value="female" onclick="checkButtons()"
-                    id="radio-2"><label class="cursor" for="radio-2">Series</label>
-                <input class="commercial-button" type="radio" name="gallery" value="other" onclick="checkButtons()"
-                    id="radio-3"><label class="cursor" for="radio-3">Commercial work</label>
-            </div>
-            <div class="gallery__container">
-
-                <div id="personal" class="personal">
-                </div>
-
-                <div id="series" class="series">
-                </div>
-
-                <div id="commercial" class="commercial">
-                </div>
-            </nav>
 
     <main>
         <section class="gallery personal-active">
@@ -113,7 +83,7 @@
             </div>
 
             <div class="series__box__text">
-                <h2 class="commercial__box__title"></h2>
+                <h2 class="series__box__title"></h2>
                 <p class="series__box__description"></p>
                 <button class="button-primary series__box__button cursor">View more</button>
 
@@ -135,17 +105,15 @@
                 <h2 class="commercial__box__title"></h2>
                 <p class="series__box__description"></p>
                 <p class="commercial__box__number"></p>
-                <button class="button-primary series__box__button cursor">View more</button>
-
             </div>
         </div>
 
     </template>
 
     <template class="personalTemplate">
-        <div onclick="openLightbox(this)" class="personal__box cursor image-lightbox-open" alt="3">
+        <div onclick="openLightbox(this)" class="personal__box cursor image-lightbox-open">
             <div class="personal__box__image">
-                <img class="personal__box__src" src="img/gallery/1.png" alt="Penguin">
+                <img class="personal__box__src" src="img/gallery/1.png" alt="">
             </div>
             <h2 class="personal__box__title">Penguin</h2>
             <h2 class="personal__box__number"></h2>
@@ -154,42 +122,92 @@
     </template>
 
     <div id="myModal" class="lightbox">
-        <div onclick="toggleFullscreen()" class="full-screen-box cursor">
-            <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
-        </div>
+        <div class="lightbox-mobile__first">
+            <div onclick="toggleFullscreen()" class="full-screen-box cursor">
+                <img id="fullscreen" src="img/fullscreen.png" class="full-screen" alt="fullscreen"></span>
+            </div>
 
-        <div onclick="closeModal()" class="close-box cursor">
-            <span class="close"></span>
-        </div>
+            <div onclick="closeModal()" class="close-box cursor">
+                <span class="close"></span>
+            </div>
 
-        <div class="prev-box">
-            <div onclick="minusSlides()" class="arrow">
-                <div class="arrow-top arrow-left-top"></div>
-                <div class="arrow-bottom arrow-left-bottom"></div>
+            <div class="prev-box">
+                <div onclick="minusSlides()" class="arrow">
+                    <div class="arrow-top arrow-left-top"></div>
+                    <div class="arrow-bottom arrow-left-bottom"></div>
+                </div>
+            </div>
+            <div class="next-box">
+                <div onclick="plusSlides()" class="arrow">
+                    <div class="arrow-top arrow-right-top"></div>
+                    <div class="arrow-bottom arrow-right-bottom"></div>
+                </div>
+            </div>
+
+            <div class="lightbox-image-box">
+                <div class="lightbox_image"><img src="" alt="">
+                </div>
             </div>
         </div>
-        <div class="next-box">
-            <div onclick="plusSlides()" class="arrow">
-                <div class="arrow-top arrow-right-top"></div>
-                <div class="arrow-bottom arrow-right-bottom"></div>
+        <div class="lightbox-mobile__second">
+            <div class="lightbox_text">
+                <h1 class="lightbox_text_title"></h1>
+                <h2 class="lightbox_text_subtitle"></h2>
+                <p class="lightbox_text_description"></p>
+                <p class="lightbox_text_number"></p>
             </div>
-        </div>
-
-        <div class="lightbox-image-box">
-            <div class="lightbox_image"><img src="" alt="">
-            </div>
-        </div>
-
-        <div class="lightbox_text">
-            <h1 class="lightbox_text_title"></h1>
-            <h2 class="lightbox_text_subtitle"></h2>
-            <p class="lightbox_text_description"></p>
-            <p class="lightbox_text_number"></p>
         </div>
 
     </div>
 
+    <footer class="footer">
+        <section class="footer__form" id="contact">
+            <h2>Don't be a stranger, <br>just say hello!</h2>
+            <form>
+                <label for="Email">Email</label>
+                <input type="email" name="Email" id="Email" placeholder="PeterParker@gmail.com" required>
+                <label for="Name">Full Name</label>
+                <input type="text" name="Name" placeholder="Peter" id="Name" required>
+                <label for="message">Your message</label>
+                <textarea placeholder="Hey, listen up..." name="message" id="message" required></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <div class="footer__white-hack"></div>
+        <section class="footer__stuff">
+
+
+            <h2>Contact Stuff</h2>
+            <div class="heading-line"></div>
+            <p>Want to collaborate or just ask something? Feel free to get in touch with me. I am always open to
+                discussing new project, creative ideas or opportunities to be part of your visions.</p>
+            <div class="footer__2-col">
+                <div class="footer__contact">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li>Phone: </li>
+                        <li>+420 724 868 656</li>
+                        <li>Email: </li>
+                        <li>kristian.mensa@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <h2>Social</h2>
+                    <a href="https://www.instagram.com/mr.kriss/"><img src="img/ig-icon.png" alt=""></a>
+                    <a href=""> <img src="img/dribble-icon.png" alt=""></a>
+                    <a href="https://www.facebook.com/worldbykriss/"> <img src="img/fb-icon.png" class="bar__social-fb"
+                            alt=""></a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
     <script src="js/main.js"></script>
+
+    <script>
+
+    </script>
 </body>
 
 </html>

@@ -1,20 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141400908-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-141400908-1');
-</script>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -30,9 +17,7 @@
 
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
 
-
-    <title>Kristán Mensa Gallery - Series</title>
-
+    <title>Series</title>
 </head>
 
 <body class="serie__web">
@@ -68,17 +53,15 @@
             <div class="gallery__navigation">
                 <a href="gallery.html" id="personal" class="personal-button cursor">Personal work
                 </a>
-                <a href="gallery.html" id="personal" class="personal-button cursor">Series
+                <a href="gallery.html" id="personal" class="personal-button cursor active">Series
                 </a>
                 <a href="gallery.html" id="personal" class="personal-button cursor">Commercial work
                 </a>
             </div>
             <div class="gallery__container">
-
-                <h2 class="serie__heading">Serie</h2>
-                <div id="serie" class="serie">
-                </div>
-
+                    <h2 class="serie__heading">Serie</h2>
+                    <div id="serie" class="serie">
+                    </div>
             </div>
         </section>
     </main>
@@ -117,6 +100,7 @@
     
         </div>
 
+    <script src="js/main.js"></script>
 
     <template class="serieTemplate">
             <div onclick="openLightbox(this)" class="serie__box cursor image-lightbox-open">
@@ -125,9 +109,11 @@
                 </div>
                 <h2 class="serie__box__number"></h2>
             </div>
-        </div>
+        </template>
 
     
+
+
 
         <footer class="footer">
                 <section class="footer__form" id="contact">
@@ -170,11 +156,8 @@
                         </div>
                     </div>
                 </section>
-                <script src="js/main.js"></script>
             </footer>
-
-   
-
+    
 </body>
 
 </html>
