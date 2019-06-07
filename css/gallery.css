@@ -21,7 +21,8 @@
     z-index: 10;
 }
 
-.gallery__navigation label {
+.gallery__navigation label,
+.gallery__navigation a {
     margin: auto;
     font-size: 2rem;
     color: rgb(73, 73, 73);
@@ -37,7 +38,8 @@
     display: none;
 }
 
-.gallery__navigation label:before {
+.gallery__navigation label:before,
+.gallery__navigation a:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -52,24 +54,29 @@
     border-radius: 100%;
 }
 
-.gallery__navigation label:hover:before {
+.gallery__navigation label:hover:before,
+.gallery__navigation a:hover:before {
     right: 10%;
 }
 
 .gallery__navigation input[type="radio"]:checked+label:before {
     right: 10%;
-  }
+}
+
+.gallery__navigation a.active:before {
+    right: 10%;
+}
 
 /* Gallery  container */
 .gallery__container {
     position: relative;
-    width: 75%;
+    width: 65%;
     margin: 18% auto;
 }
 
 .personal,
 .series,
-.commercial{
+.commercial {
     position: absolute;
     top: 0;
     left: 0;
@@ -78,13 +85,16 @@
     transition: all 0.4s ease-in-out;
 }
 
-.personal,.series,
+.personal,
+.series,
 .commercial {
     visibility: hidden;
     opacity: 0;
 }
 
-.personal-active, .commercial-active, .series-active{
+.personal-active,
+.commercial-active,
+.series-active {
     opacity: 1;
     visibility: visible;
 }
@@ -98,19 +108,21 @@
 
 
 /* Personal work */
-.personal,.serie {
+.personal,
+.serie {
     column-count: 2;
 }
 
-.personal__box,.serie__box {
-    padding: 0 3.5rem 8rem 3.5rem;
+.personal__box,
+.serie__box {
+    padding: 0 5rem 8rem 5rem;
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
 .personal__box:hover .personal__box__title:before,
-.serie__box:hover .serie__box__title:before  {
+.serie__box:hover .serie__box__title:before {
     width: 100%;
     opacity: 0;
 }
@@ -120,7 +132,8 @@
     transform: scale(1.1);
 }
 
-.personal__box__image,.serie__box__image {
+.personal__box__image,
+.serie__box__image {
     padding: 0;
     width: 100%;
     height: 100%;
@@ -128,14 +141,16 @@
     overflow: hidden;
 }
 
-.personal__box__image img,.serie__box__image img {
+.personal__box__image img,
+.serie__box__image img {
     width: 100%;
     height: auto;
     transition: 0.4s ease;
     display: block;
 }
 
-.personal__box__title,.serie__box__title {
+.personal__box__title,
+.serie__box__title {
     position: relative;
     transition: 0.5s ease-in;
     margin: 2rem 0;
@@ -143,7 +158,8 @@
     font-size: 2rem;
 }
 
-.personal__box__title:before,.serie__box__title:before {
+.personal__box__title:before,
+.serie__box__title:before {
     position: absolute;
     content: "";
     background: rgb(255, 255, 255);
@@ -156,18 +172,21 @@
     opacity: 1;
 }
 
-.personal__box__number,.commercial__box__number,.series__box__number,.serie__box__number{
+.personal__box__number,
+.commercial__box__number,
+.series__box__number,
+.serie__box__number {
     display: none;
 }
 
-.serie__heading{
-    margin: 2rem 3.5rem;
+.serie__heading {
+    padding: 2rem 5rem 9rem 5rem;
     color: rgb(94, 94, 94);
-    font-size: 2rem;
+    font-size: 2.8rem;
 }
 
-.serie__description{
-    margin: 2rem 3.5rem;
+.serie__description {
+    padding: 2rem 5rem;
     color: rgb(94, 94, 94);
     font-size: 1.8rem;
 }
@@ -203,9 +222,12 @@
 
 .series__box__text {
     position: relative;
+    width: 100%;
+    height: 100%;
 }
 
-.series__box__title {
+.series__box__title,
+.commercial__box__title {
     margin: 0 5rem;
     color: rgb(94, 94, 94);
     font-size: 3rem;
@@ -250,36 +272,39 @@
     top: 0;
     width: 100%;
     height: 100%;
+    max-height: 100vh;
     overflow: auto;
     background-color: rgb(255, 255, 255);
     transition: opacity 0.2s ease 0s;
 
 }
 
-.modal-open{
+.modal-open {
     visibility: visible;
     opacity: 1;
 }
 
 /* Modal Content */
 .lightbox-image-box {
+    margin: auto;
     grid-area: img;
     position: relative;
     background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    width: 85%;
+    height: 100vh;
+    padding: 10vh 0;
+    width: 100%;
     transition: all 0.2s ease-in-out;
 }
 
 .lightbox_image {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .lightbox_image img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* The Close Button */
@@ -477,4 +502,98 @@
     right: 5%;
     font-size: 25px;
     font-weight: 600;
+}
+
+@media only screen and (max-width: 85em) {
+
+    .personal__box,
+    .serie__box {
+        padding: 0 2rem 3rem 2rem;
+    }
+
+    .gallery__container {
+        width: 75%;
+        margin: 15% auto;
+    }
+
+
+}
+
+@media only screen and (max-width: 65em) {
+
+
+    .series,
+    .commercial {
+        width: 70%;
+        margin: 0 15%;
+    }
+
+
+    .series__box,
+    .commercial__box {
+        grid-template-columns: 1fr;
+    }
+
+    .series__box__title,
+    .commercial__box__title {
+        margin: 4rem 5rem;
+        font-size: 2rem;
+    }
+
+    .series__box__image__frame {
+        width: 100%;
+    }
+    
+
+    .series__box__button {
+        position: absolute;
+        top: 4rem;
+        bottom: auto;
+        left: auto;
+        right: 0;
+        padding: 1rem 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    
+
+}
+
+@media only screen and (max-width: 50em) {
+
+    .personal,
+    .series,
+    .commercial {
+        padding: 10%;
+    }
+
+    .series,
+    .commercial {
+        width: 90%;
+        margin: 0 5%;
+    }
+
+    .series__box__title,
+    .commercial__box__title {
+        font-size: 1.7rem;
+    }
+
+    .personal,
+    .serie {
+        column-count: 1;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+
+    .personal,
+    .series,
+    .commercial {
+        padding: 0;
+    }
+
+    .series__box__button {
+        right: 1rem;
+    }
+
 }
