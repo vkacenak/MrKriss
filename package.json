@@ -127,7 +127,7 @@
     "inherits": "^2.0.3",
     "in-publish": "^2.0.0",
     "invert-kv": "^1.0.0",
-    "hosted-git-info": "^2.7.1",
+    "hosted-git-info": "^2.8.9",
     "is-accessor-descriptor": "^0.1.6",
     "is-binary-path": "^1.0.1",
     "is-arrayish": "^0.2.1",
