@@ -115,7 +115,7 @@
     "glob-base": "^0.3.0",
     "graceful-fs": "^4.1.15",
     "har-schema": "^2.0.0",
-    "glob-parent": "^2.0.0",
+    "glob-parent": "^5.1.2",
     "has": "^1.0.3",
     "has-ansi": "^2.0.0",
     "has-flag": "^3.0.0",
